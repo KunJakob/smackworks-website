@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { LandingPage } from './pages/landingpage';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { CoverPageTemplate } from './template/coverpage-template';
+import { SignupPage } from './pages/signup';
+import { createGlobalStyle } from 'styled-components';
+import { client } from './index';
+import { ApolloProvider } from 'react-apollo';
 
-class App extends Component {
+const GlobalStyle = createGlobalStyle`
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+}
+`
+
+export class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <>
+        <ApolloProvider client={client}>
+          <GlobalStyle />
+          <CoverPageTemplate>
+            <BrowserRouter>
+              <Switch>
+                <Route path="/" exact component={LandingPage} />
+                <Route path="/signup" component={SignupPage} />
+              </Switch>
+            </BrowserRouter>
+          </CoverPageTemplate>
+        </ApolloProvider>
+      </>
     );
   }
 }
 
-export default App;
