@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import ApolloClient from "apollo-boost";
 
 export const client = new ApolloClient({
-  uri: "https://api.smack.works/"
+  uri: "http://api.smack.works:4400/"
 });
 
 ReactDOM.render(<App />, document.getElementById('root'));
