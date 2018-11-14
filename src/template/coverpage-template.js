@@ -47,7 +47,8 @@ export class CoverPageTemplate extends Component {
               style={{
                 textAlign: 'center',
                 borderTop: '2px solid black',
-                marginTop: '30px'
+                marginTop: '30px',
+                fontSize: '18px'
               }}
             >
               Made with ❤ by Smack
