@@ -1,8 +1,12 @@
 dist: trusty
 language: node_js
+node_js: 
+  - "lts/*"
+cache: yarn
 
-before_script: 
+install: 
   - yarn
+
 script:
   - yarn build
 
