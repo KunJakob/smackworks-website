@@ -13,13 +13,12 @@ margin-left: auto;
 margin-right: auto;
 text-align: center;
 font-size: 36px;
-margin-bottom: 20px;
+margin-bottom: 15px;
 `
 const SlickCarousel = styled(Carousel)`
 max-height: 450px;
 width: auto;
 margin: 0 auto 0 auto;
-line-height: 460px;
 text-align: center;
 color: black;
 `
@@ -32,9 +31,9 @@ export class Screenshots extends Component {
       <div>
       <Heading>Screenshots</Heading>
         <SlickCarousel dots={false} autoplay={true} >
-          <div><IMG alt='Screenshot' src='screenshots/1.png' /></div>
-          <div><IMG alt='Screenshot' src='screenshots/2.png' /></div>
-          <div><IMG alt='Screenshot' src='screenshots/3.png' /></div>
+          <div><IMG alt='Screenshot' src='screenshots/1.jpg' /></div>
+          <div><IMG alt='Screenshot' src='screenshots/2.jpg' /></div>
+          <div><IMG alt='Screenshot' src='screenshots/3.jpg' /></div>
         </SlickCarousel>
       </div>
     );

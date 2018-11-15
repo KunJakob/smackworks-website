@@ -17,6 +17,8 @@ export class LandingPage extends Component {
         <SegmentContainer alternate={true}>
           <Screenshots />
         </SegmentContainer>
+
+
       </div>
     );
   }

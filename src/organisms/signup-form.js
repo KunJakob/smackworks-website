@@ -3,6 +3,7 @@ import { Icon, Input, Button } from 'antd';
 import { withFormik, Form } from 'formik';
 import FormItem from 'antd/lib/form/FormItem';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const FormItemWithSpacing = styled(FormItem)`
 margin-bottom: 24px;
@@ -50,7 +51,7 @@ const SignUpForm = ({
             onChange={handleChange} />
         </FormItemWithSpacing>
         <FormItem>
-          <div style={{textAlign: 'center'}}>By clicking Sign Up you agree to the <a href='/tos'>Terms of Service</a></div>
+          <div style={{textAlign: 'center'}}>By clicking Sign Up you agree to the <Link to='/tos'>Terms of Service</Link></div>
           <Button type="primary" htmlType="submit" style={{ width: '100%', marginBottom: '5px', marginTop: '8px' }}>
             Sign Up
           </Button>

@@ -2,6 +2,7 @@
   "name": "minerquests.com",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://smack.works",
   "dependencies": {
     "antd": "^3.10.4",
     "apollo-boost": "^0.1.20",

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Menu } from 'antd';
 import { LoginButtons } from './../molecules/navbar/login-buttons';
+import { Link } from 'react-router-dom';
 
 const bgColor = '#2f3136';
 
@@ -28,7 +29,7 @@ export class Navbar extends Component {
         }}
         >
           <Menu.Item>
-            <a href='/'>Home</a>
+            <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.Item>Products</Menu.Item>
           <Menu.Item>Pricing</Menu.Item>

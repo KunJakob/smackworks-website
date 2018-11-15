@@ -3,8 +3,9 @@ import styled from 'styled-components';
 
 const PaddedContainer = styled.div`
 max-height: 600px;
-min-height: 500px;
-margin-top: 40px;
+min-height: 400px;
+padding-top: 20px;
+padding-bottom: 20px;
 background-color: ${({alternate}) => {
   console.log(alternate);
   return (alternate ? "#282c34" : "#313846");
