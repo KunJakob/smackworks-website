@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { LogoWithHeaders } from '../organisms/segments/banner';
 import { Screenshots } from '../organisms/segments/screenshots';
 import { SegmentContainer } from './../organisms/segments/segment-container';
+import { WhySmackWorks } from '../organisms/segments/why-smackworks';
 
 export class LandingPage extends Component {
   constructor(props) {
@@ -11,10 +12,13 @@ export class LandingPage extends Component {
   render() {
     return (
       <div>
-        <SegmentContainer alternate={false}>
+        <SegmentContainer >
           <LogoWithHeaders />
         </SegmentContainer>
-        <SegmentContainer alternate={true}>
+        <SegmentContainer alternate>
+          <WhySmackWorks />
+        </SegmentContainer>
+        <SegmentContainer >
           <Screenshots />
         </SegmentContainer>
 

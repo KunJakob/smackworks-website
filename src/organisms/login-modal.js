@@ -7,7 +7,7 @@ export class LoginModal extends Component {
     const {visible, onOk, onCancel} = this.props;
     return (
       <Modal
-      title='Sign In'
+      title='Login'
       visible={visible}
       onOk={onOk}
       onCancel={onCancel}

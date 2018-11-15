@@ -13,7 +13,7 @@ margin-left: auto;
 margin-right: auto;
 text-align: center;
 font-size: 36px;
-margin-bottom: 15px;
+margin-bottom: 16px;
 `
 const SlickCarousel = styled(Carousel)`
 max-height: 450px;
@@ -28,7 +28,7 @@ export class Screenshots extends Component {
   state = {}
   render() {
     return (
-      <div>
+      <div style={{marginBottom: '16px'}}>
       <Heading>Screenshots</Heading>
         <SlickCarousel dots={false} autoplay={true} >
           <div><IMG alt='Screenshot' src='screenshots/1.jpg' /></div>

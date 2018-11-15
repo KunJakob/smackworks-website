@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { LandingPage } from './pages/landingpage';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { CoverPageTemplate } from './template/coverpage-template';
 import { SignupPage } from './pages/signup';
 import { createGlobalStyle } from 'styled-components';
@@ -22,19 +22,17 @@ input:-webkit-autofill:active {
 export class App extends Component {
   render() {
     return (
-      <>
+      <BrowserRouter>
         <ApolloProvider client={client}>
           <GlobalStyle />
           <CoverPageTemplate>
-            <BrowserRouter>
-              <Switch>
-                <Route path="/" exact component={LandingPage} />
-                <Route path="/signup" component={SignupPage} />
-              </Switch>
-            </BrowserRouter>
+
+            <Route path="/" exact component={LandingPage} />
+            <Route path="/signup" component={SignupPage} />
+
           </CoverPageTemplate>
         </ApolloProvider>
-      </>
+      </BrowserRouter>
     );
   }
 }
