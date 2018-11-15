@@ -12,7 +12,7 @@ export class FeatureIcon extends Component {
     console.log(this.props.children);
     return (
       <IconContainer>
-        <Icon type={this.props.children}/>
+        <Icon type={this.props.children} theme="twoTone" twoToneColor="#a471ce"/>
       </IconContainer>
     );
   }

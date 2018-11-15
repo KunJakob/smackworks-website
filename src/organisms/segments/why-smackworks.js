@@ -18,37 +18,37 @@ export class WhySmackWorks extends Component {
   render() {
     return (
       <div>
-      <Heading>Why SmackWorks?</Heading>
+        <Heading>Why SmackWorks?</Heading>
         <div style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '1000px', width: '100%', margin: '0 auto 0 auto' }}>
           <Feature
-            icon={"fire"}
-            header={"Straight Fire"}
-            text={"SmackWorks is legit fire. It's so hot it emits radiation with a wavelength of the planck distance. How can you beat that?"}
+            icon={"setting"}
+            header={"EZ Config"}
+            text={"All offered plugins are configured in an intuitive web UI, and will never use text files to use in production servers."}
           />
           <Feature
-            icon={"fire"}
-            header={"Straight Fire"}
-            text={"SmackWorks is legit fire. It's so hot it emits radiation with a wavelength of the planck distance. How can you beat that?"}
+            icon={"lock"}
+            header={"OP Security"}
+            text={"SmackWorks communication is done over HTTPS and sensitive information is hashed with bcrypt with 2FA available."}
           />
           <Feature
-            icon={"fire"}
-            header={"Straight Fire"}
-            text={"SmackWorks is legit fire. It's so hot it emits radiation with a wavelength of the planck distance. How can you beat that?"}
+            icon={"thunderbolt"}
+            header={"Blazing Fast"}
+            text={"Plugins provided by SmackWorks are guaranteed to have extensive optimization to minimize server overhead and lag."}
           />
           <Feature
-            icon={"fire"}
-            header={"Straight Fire"}
-            text={"SmackWorks is legit fire. It's so hot it emits radiation with a wavelength of the planck distance. How can you beat that?"}
+            icon={"cloud"}
+            header={"Auto-Updating"}
+            text={"The SmackWorks cloud will automatically update your plugins to the latest version compatible with your Minecraft server (WIP)"}
           />
           <Feature
-            icon={"question"}
-            header={"wtf"}
-            text={"In case you couldn't tell, this is all placeholder text"}
+            icon={"experiment"}
+            header={"Modern Tooling"}
+            text={"SmackWorks is built on cutting-edge industry standards for reliable and efficient software. Rapid deployment of new features is therefore possible."}
           />
           <Feature
-            icon={"fire"}
-            header={"Straight Fire"}
-            text={"SmackWorks is legit fire. It's so hot it emits radiation with a wavelength of the planck distance. How can you beat that?"}
+            icon={"heart"}
+            header={"Made w/ Care"}
+            text={"SmackWorks has been over a year in the making prior to release. SmackWorks is made for the community and subscription prices are to offset costs."}
           />
         </div>
       </div>
