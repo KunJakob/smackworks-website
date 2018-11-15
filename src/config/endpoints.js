@@ -1,4 +1,4 @@
 export const endpoints = {
-  auth: 'http://localhost:4400/',
-  api: 'http://localhost:4500/'
+  auth: 'http://api.smack.works:4400/',
+  api: 'http://api.smack.works:4500/'
 }
