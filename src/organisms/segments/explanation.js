@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { SegmentContainer } from './segment-container';
 import styled from 'styled-components';
 
 const Heading = styled.div`
