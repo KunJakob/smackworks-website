@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { LandingPage } from './pages/landingpage';
-import { BrowserRouter, Route } from 'react-router-dom';
-import { CoverPageTemplate } from './template/coverpage-template';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { SignupPage } from './pages/signup';
 import { createGlobalStyle } from 'styled-components';
 import { client } from './index';
@@ -25,12 +24,10 @@ export class App extends Component {
       <BrowserRouter>
         <ApolloProvider client={client}>
           <GlobalStyle />
-          <CoverPageTemplate>
-
+            <Switch>
             <Route path="/" exact component={LandingPage} />
             <Route path="/signup" component={SignupPage} />
-
-          </CoverPageTemplate>
+            </Switch>
         </ApolloProvider>
       </BrowserRouter>
     );

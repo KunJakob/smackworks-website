@@ -3,6 +3,8 @@ import { LogoWithHeaders } from '../organisms/segments/banner';
 import { Screenshots } from '../organisms/segments/screenshots';
 import { SegmentContainer } from './../organisms/segments/segment-container';
 import { WhySmackWorks } from '../organisms/segments/why-smackworks';
+import { CoverPageTemplate } from '../template/coverpage-template';
+import { Explanation } from './../organisms/segments/explanation';
 
 export class LandingPage extends Component {
   constructor(props) {
@@ -11,19 +13,20 @@ export class LandingPage extends Component {
   }
   render() {
     return (
-      <div>
+      <CoverPageTemplate>
         <SegmentContainer >
           <LogoWithHeaders />
         </SegmentContainer>
         <SegmentContainer alternate>
+          <Explanation />
+        </SegmentContainer>
+        <SegmentContainer>
           <WhySmackWorks />
         </SegmentContainer>
-        <SegmentContainer >
+        <SegmentContainer alternate>
           <Screenshots />
         </SegmentContainer>
-
-
-      </div>
+      </CoverPageTemplate>
     );
   }
 }

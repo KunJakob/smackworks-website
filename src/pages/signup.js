@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FormikSignUpForm } from './../organisms/signup-form';
 import styled from 'styled-components';
+import { CoverPageTemplate } from './../template/coverpage-template';
 
 const Heading = styled.div`
 display: block;
@@ -13,7 +14,7 @@ font-size: 48px;
 export class SignupPage extends Component {
   render() {
     return (
-      <div>
+      <CoverPageTemplate>
         <div style={{ display: 'flex', marginBottom: '20px' }}>
           <Heading>Sign Up to SmackWorks</Heading>
         </div>
@@ -22,7 +23,7 @@ export class SignupPage extends Component {
             console.log('signed up');
           }}
         />
-      </div>
+        </CoverPageTemplate>
     );
   }
 }
