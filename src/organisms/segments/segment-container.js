@@ -8,7 +8,6 @@ padding-bottom: 20px;
 -moz-box-shadow: 0px 4px 6px 0px rgba(0,0,0,1);
 box-shadow: 0px 4px 6px 0px rgba(0,0,0,1);
 background-color: ${({alternate}) => {
-  console.log(alternate);
   return (alternate ? "#282c34" : "#313846");
 }} !important;
 `

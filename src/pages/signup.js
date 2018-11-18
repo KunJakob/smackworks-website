@@ -11,7 +11,7 @@ text-align: center;
 font-size: 48px;
 `
 
-export class SignupPage extends Component {
+export default class SignupPage extends Component {
   render() {
     return (
       <CoverPageTemplate>

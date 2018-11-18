@@ -23,7 +23,7 @@ export class WhySmackWorks extends Component {
           <Feature
             icon={"setting"}
             header={"EZ Config"}
-            text={"All offered plugins are configured in an intuitive web UI, and will never use text files to use in production servers."}
+            text={"All offered plugins are configured in an intuitive web UI, and will never utilize text config files in production servers."}
           />
           <Feature
             icon={"lock"}

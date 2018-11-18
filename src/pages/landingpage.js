@@ -6,7 +6,7 @@ import { WhySmackWorks } from '../organisms/segments/why-smackworks';
 import { CoverPageTemplate } from '../template/coverpage-template';
 import { Explanation } from './../organisms/segments/explanation';
 
-export class LandingPage extends Component {
+export default class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {}

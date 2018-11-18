@@ -9,10 +9,9 @@ text-align: center;
 
 export class FeatureIcon extends Component {
   render() {
-    console.log(this.props.children);
     return (
       <IconContainer>
-        <Icon type={this.props.children} theme="twoTone" twoToneColor="#a471ce"/>
+        <Icon type={this.props.children} theme="twoTone" twoToneColor="#a471ce  "/>
       </IconContainer>
     );
   }
