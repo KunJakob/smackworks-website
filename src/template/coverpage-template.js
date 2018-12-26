@@ -1,43 +1,52 @@
-import React, { Component } from 'react';
-import { Navbar } from '../organisms/coverpage-navbar';
-import styled from 'styled-components';
-import { Layout } from 'antd';
-import { LoginModal } from '../organisms/login-modal';
+import { Layout } from "antd";
+import React, { Component } from "react";
+import styled from "styled-components";
+import { LoginModal } from "./../organisms/landingpage/login-modal";
+import { Navbar } from "./../organisms/landingpage/coverpage-navbar";
+import { AuthService } from "./../services/authservice";
+import { withRouter } from "react-router";
 
 const PaddedContentContainer = styled.div`
-padding-top: 87px;
-`
+  padding-top: 87px;
+`;
 
-export class CoverPageTemplate extends Component {
+class RawCoverPageTemplate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showSignIn: false,
+      showSignIn: false
+    };
+  }
+  signInClick = () => {
+    if (AuthService.isAuthenticated) {
+      this.props.history.push("/panel");
+      return;
     }
-  }
-  showModal = () => {
-    console.log('hi')
     this.setState({
-      showSignIn: true,
-    })
-  }
+      showSignIn: true
+    });
+  };
   hideModal = () => {
     this.setState({
-      showSignIn: false,
-    })
-  }
+      showSignIn: false
+    });
+  };
 
   render() {
     return (
       <div>
-        <LoginModal visible={this.state.showSignIn} onOk={this.hideModal} onCancel={this.hideModal} />
+        <LoginModal
+          visible={this.state.showSignIn}
+          onOk={this.hideModal}
+          onCancel={this.hideModal}
+        />
         <Layout>
-          <Navbar
-            signInClickHandler={this.showModal}
-          />
-          <div style={{
-            backgroundColor: '#313846'
-          }}>
+          <Navbar signInClickHandler={this.signInClick} />
+          <div
+            style={{
+              backgroundColor: "#313846"
+            }}
+          >
             <Layout.Content>
               <PaddedContentContainer>
                 {this.props.children}
@@ -45,16 +54,18 @@ export class CoverPageTemplate extends Component {
             </Layout.Content>
             <Layout.Footer
               style={{
-                textAlign: 'center',
-                borderTop: '2px solid black',
-                fontSize: '18px'
+                textAlign: "center",
+                borderTop: "2px solid black",
+                fontSize: "18px"
               }}
             >
               Made with ❤ by Smack
-        </Layout.Footer>
+            </Layout.Footer>
           </div>
         </Layout>
       </div>
     );
   }
 }
+
+export const CoverPageTemplate = withRouter(RawCoverPageTemplate);

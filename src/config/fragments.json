@@ -1,0 +1,53 @@
+{
+  "__schema": {
+    "types": [
+      {
+        "kind": "INTERFACE",
+        "name": "Objective",
+        "possibleTypes": [
+          { "name": "GenericObjective" },
+          { "name": "UUID" },
+          { "name": "Field" },
+          { "name": "Pokemon" },
+          { "name": "RightClickEntityType" },
+          { "name": "Location" }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "Condition",
+        "possibleTypes": [
+          { "name": "AtTime" },
+          { "name": "HasPokemon" },
+          { "name": "HasCompleted" },
+          { "name": "HasPermission" },
+          { "name": "HasLevel" },
+          { "name": "HasItem" },
+          { "name": "HasMoney" },
+          { "name": "LookingAt" },
+          { "name": "WearingArmor" },
+          { "name": "WithinCoordinates" },
+          { "name": "InWorld" },
+          { "name": "MinerEventsCurrentEvent" }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "Action",
+        "possibleTypes": [
+          { "name": "GenericAction" },
+          { "name": "ClearEntities" },
+          { "name": "ExecuteCommand" },
+          { "name": "GTCurrency" },
+          { "name": "GTItem" },
+          { "name": "GTPokemon" },
+          { "name": "SendMessage" },
+          { "name": "SendChatGUI" },
+          { "name": "SendTitle" },
+          { "name": "SkipToStage" },
+          { "name": "Teleport" }
+        ]
+      }
+    ]
+  }
+}

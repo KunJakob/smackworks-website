@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Icon, Button } from 'antd';
+import { Button } from 'antd';
 import styled from 'styled-components';
 const bgColor = '#2f3136';
 
@@ -13,28 +13,22 @@ background-color: ${bgColor};
 display: flex;
 `
 
-const Left = styled.div`
-flex: 1;          
-display: flex;
-justify-content: flex-start;
-align-items: center;
-font-size: 35px;
-max-width: 200px;
-width: 200px;
-`
 
-const Logo = styled.div`
+
+/*const Logo = styled.div`
 flex: 1;
 display: flex;
 justify-items: center;
 align-items: center;
-`
+`*/
 
 const Center = styled.div`
 flex: 1;
 display: flex;
+font-size: 35px;
 justify-content: center;
 align-items: center;
+
 `
 
 const Right = styled.div`
@@ -44,16 +38,38 @@ justify-content: flex-end;
 align-items: center;
 `
 
+const Left = styled.div`
+flex: 1;          
+display: flex;
+align-items: center;
+justify-content: flex-start;
+font-size: 25px;
+padding-left: 11px;
+`
+
+const PrettyButton = styled(Button)`
+padding: 0px 8px 0px 8px !important;
+font-size: 25px;
+`
+
 export class PanelTopBar extends Component {
   render() {
     return (
       <GorgeousHeader>
-        
-        <Left><Logo>{this.props.appname}</Logo></Left>
+
+        <Left><div/></Left>
 
         <Center>SmackWorks</Center>
 
-        <Right><Button icon='appstore'>Apps</Button></Right>
+        <Right>
+          <PrettyButton size='large'  icon='appstore' style={{
+            borderWidth: '2px',
+          }}>Apps</PrettyButton>
+          <PrettyButton icon='setting' size='large'  style={{
+            marginLeft: '5px',
+            borderWidth: '2px',
+          }}>Settings</PrettyButton>
+        </Right>
 
 
       </GorgeousHeader>

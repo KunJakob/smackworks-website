@@ -1,0 +1,19 @@
+{
+  schema: {
+    files: 'src/**/*.gql',
+  },
+  query: {
+    files: [
+      // query gql files
+      {
+        match: 'src/**/*.gql',
+        parser: 'QueryParser',
+      },
+      // [Embedded queries] gql tag files
+      {
+        match: { include: 'src/**/*.js', ignore: '**/tests/**/*.js' },
+        parser: [ 'EmbeddedQueryParser', { startTag: 'gql`', endTag: '`' } ],
+      }
+    ]
+  }
+}

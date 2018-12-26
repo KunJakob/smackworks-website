@@ -1,7 +1,7 @@
-import { endpoints } from './endpoints';
+import { endpoints } from "./endpoints";
 
 export const login = async (email, password) => {
-  return fetch(endpoints.auth + "account/signin/", {
+  return fetch(endpoints.auth + "account/signin", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -14,12 +14,12 @@ export const login = async (email, password) => {
       password: password
     })
   })
-  .then(res => res.json())
-  .catch(error => console.error('Error:', error));
+    .then(res => res.json())
+    .catch(error => console.error("Error:", error));
 };
 
 export const signup = async (email, password) => {
-  return fetch(endpoints.auth + "account/signup/", {
+  return fetch(endpoints.auth + "account/signup", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -32,13 +32,13 @@ export const signup = async (email, password) => {
       password: password
     })
   })
-  .then(res => res.json())
-  .catch(error => console.error('Error:', error));
+    .then(res => res.json())
+    .catch(error => console.error("Error:", error));
 };
 
-export const verify = async (accessToken) => {
-  return fetch(endpoints.auth + "account/verify/", {
-    method: "GET",
+export const verify = async accessToken => {
+  return fetch(endpoints.auth + "account/verify", {
+    method: "POST",
     mode: "cors",
     headers: {
       "Content-Type": "application/json"
@@ -49,12 +49,12 @@ export const verify = async (accessToken) => {
       accessToken: accessToken
     })
   })
-  .then(res => res.json())
-  .catch(error => console.error('Error:', error));
+    .then(res => res.json())
+    .catch(error => console.error("Error:", error));
 };
 
-export const requestAccessToken = async (refreshToken) => {
-  return fetch(endpoints.auth + "account/requestaccesstoken/", {
+export const requestAccessToken = async refreshToken => {
+  return fetch(endpoints.auth + "account/requestaccesstoken", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -66,12 +66,12 @@ export const requestAccessToken = async (refreshToken) => {
       refreshToken: refreshToken
     })
   })
-  .then(res => res.json())
-  .catch(error => console.error('Error:', error));
+    .then(res => res.json())
+    .catch(error => console.error("Error:", error));
 };
 
-export const logout = async (refreshToken) => {
-  return fetch(endpoints.auth + "account/logout/", {
+export const logout = async refreshToken => {
+  return fetch(endpoints.auth + "account/logout", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -83,6 +83,6 @@ export const logout = async (refreshToken) => {
       refreshToken: refreshToken
     })
   })
-  .then(res => res.json())
-  .catch(error => console.error('Error:', error));
+    .then(res => res.json())
+    .catch(error => console.error("Error:", error));
 };
