@@ -1,4 +1,4 @@
-import { Button, Icon, Input, Switch } from "antd";
+import { Icon, Input, Switch } from "antd";
 import { Form, withFormik } from "formik";
 import { Form as AntForm } from "antd";
 import React, { Component } from "react";
@@ -47,7 +47,6 @@ class RawCreateObjectiveForm extends Component {
             <div>Description</div>
             <Input
               name="description"
-              placeholder="Kill the pigs at Old Man Billy's Farm"
               autoComplete="off"
               value={this.props.values.description}
               onChange={this.props.handleChange}
