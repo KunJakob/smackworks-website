@@ -3,7 +3,6 @@ import { Form, withFormik } from "formik";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import styled from "styled-components";
-import { AutoSave } from "./auto-save";
 
 const FormItemWithSpacing = styled(AntForm.Item)`
   margin-bottom: 12px;
