@@ -21,7 +21,11 @@ export class QuestNavigationMenu extends Component {
     questIndex: PropTypes.number.isRequired,
     createObjectiveClick: PropTypes.func.isRequired,
     createConditionClick: PropTypes.func.isRequired,
-    createActionClick: PropTypes.func.isRequired
+    createActionClick: PropTypes.func.isRequired,
+    switchStageHandler: PropTypes.func.isRequired,
+    switchObjectiveHandler: PropTypes.func.isRequired,
+    switchActionHandler: PropTypes.func.isRequired,
+    switchConditionHandler: PropTypes.func.isRequired
   };
 
   render() {
@@ -30,7 +34,11 @@ export class QuestNavigationMenu extends Component {
       questIndex,
       createObjectiveClick,
       createConditionClick,
-      createActionClick
+      createActionClick,
+      switchStageHandler,
+      switchObjectiveHandler,
+      switchActionHandler,
+      switchConditionHandler
     } = this.props;
     return (
       <>
@@ -61,12 +69,16 @@ export class QuestNavigationMenu extends Component {
                   title={
                     stageIndex === 0 ? "Begin Quest" : "Stage " + stageIndex
                   }
+                  onTitleClick={() =>
+                    switchStageHandler(questIndex, stageIndex)
+                  }
                 >
                   {stage.objectives.map((objective, index) => {
                     const objectiveIndex = stageIndex + index;
                     return (
                       <SubMenu
                         key={
+                          //Switchify this?
                           objectiveIndex +
                           (objective.genericType ||
                             objective.uuidType ||
@@ -75,14 +87,24 @@ export class QuestNavigationMenu extends Component {
                             objective.locationType ||
                             objective.__typename)
                         }
-                        title={objectiveFormService.getDisplayName(
-                          objective.genericType ||
-                            objective.uuidType ||
-                            objective.fieldType ||
-                            objective.pokemonType ||
-                            objective.locationType ||
-                            objective.__typename
-                        )}
+                        title={
+                          //Switchify this?
+                          objectiveFormService.getDisplayName(
+                            objective.genericType ||
+                              objective.uuidType ||
+                              objective.fieldType ||
+                              objective.pokemonType ||
+                              objective.locationType ||
+                              objective.__typename
+                          )
+                        }
+                        onTitleClick={() =>
+                          switchObjectiveHandler(
+                            questIndex,
+                            stageIndex,
+                            objectiveIndex
+                          )
+                        }
                       >
                         <SubMenu
                           key={objectiveIndex + "conditions"}
@@ -92,7 +114,17 @@ export class QuestNavigationMenu extends Component {
                             const conditionIndex =
                               objectiveIndex + "conditions" + index;
                             return (
-                              <Menu.Item key={conditionIndex}>
+                              <Menu.Item
+                                key={conditionIndex}
+                                onClick={() =>
+                                  switchConditionHandler(
+                                    questIndex,
+                                    stageIndex,
+                                    objectiveIndex,
+                                    index
+                                  )
+                                }
+                              >
                                 {conditionFormService.getDisplayName(
                                   condition.__typename
                                 )}
@@ -114,7 +146,17 @@ export class QuestNavigationMenu extends Component {
                             const actionIndex =
                               objectiveIndex + "actions" + index;
                             return (
-                              <Menu.Item key={actionIndex}>
+                              <Menu.Item
+                                key={actionIndex}
+                                onClick={() =>
+                                  switchActionHandler(
+                                    questIndex,
+                                    stageIndex,
+                                    objectiveIndex,
+                                    index
+                                  )
+                                }
+                              >
                                 {actionFormService.getDisplayName(
                                   action.__typename
                                 )}

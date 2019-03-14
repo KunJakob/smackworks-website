@@ -1,10 +1,10 @@
 dist: trusty
 language: node_js
-node_js: 
+node_js:
   - "lts/*"
 cache: yarn
 
-install: 
+install:
   - yarn
 
 script:

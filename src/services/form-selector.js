@@ -10,13 +10,7 @@ export const getObjectiveForm = selectedObjective => {
 
 class FormSelectorService {
   formArray = [];
-  /**
-   *
-   * @argument form.key The GraphQL typename
-   * @argument form.displayName The rendered name of the form
-   * @argument form.mutation The GraphQL mutation to push the object
-   * @argument form.jsx Componentto render at the bottom of the form.
-   */
+
   registerFormType = form => {
     if (form.key && form.displayName && form.mutation && form.jsx) {
       this.formArray.push(form);

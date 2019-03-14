@@ -1,5 +1,4 @@
-import { Divider, Layout } from "antd";
-import gql from "graphql-tag";
+import { Layout } from "antd";
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import styled from "styled-components";
@@ -16,6 +15,7 @@ import {
 import { CreateActionModal } from "../molecules/panel/forms/create-action/create-action-modal";
 import { CreateObjectiveModal } from "../molecules/panel/forms/create-objective/create-objective-modal";
 import { CreateQuestModal } from "../molecules/panel/forms/create-quest-modal";
+import { Editor } from "../molecules/panel/editor";
 
 const { Footer, Sider, Content, Header } = Layout;
 
@@ -45,6 +45,8 @@ export default class Panel extends Component {
       showCreateQuest: false,
       showCreateObjective: false,
       objectiveIndex: -1,
+      actionIndex: -1,
+      conditionIndex: -1,
       showCreateCondition: false,
       showCreateAction: false
     };
@@ -108,7 +110,63 @@ export default class Panel extends Component {
   switchQuestHandler = e => {
     console.log(e);
     this.setState({
-      openQuest: parseInt(e.key)
+      openQuest: parseInt(e.key),
+      stageIndex: -1,
+      actionIndex: -1,
+      conditionIndex: -1
+    });
+  };
+
+  switchStageHandler = (questIndex, stageIndex) => {
+    console.log("stage", stageIndex);
+    this.setState({
+      openQuest: questIndex,
+      stageIndex: stageIndex,
+      objectiveIndex: -1,
+      actionIndex: -1,
+      conditionIndex: -1
+    });
+  };
+
+  switchObjectiveHandler = (questIndex, stageIndex, objectiveIndex) => {
+    console.log("objective", objectiveIndex);
+    this.setState({
+      openQuest: questIndex,
+      stageIndex: stageIndex,
+      objectiveIndex: objectiveIndex,
+      actionIndex: -1,
+      conditionIndex: -1
+    });
+  };
+
+  switchConditionHandler = (
+    questIndex,
+    stageIndex,
+    objectiveIndex,
+    conditionIndex
+  ) => {
+    console.log("condition", conditionIndex);
+    this.setState({
+      openQuest: questIndex,
+      stageIndex: stageIndex,
+      objectiveIndex: objectiveIndex,
+      conditionIndex: conditionIndex,
+      actionIndex: -1
+    });
+  };
+  switchActionHandler = (
+    questIndex,
+    stageIndex,
+    objectiveIndex,
+    actionIndex
+  ) => {
+    console.log("action", actionIndex);
+    this.setState({
+      openQuest: questIndex,
+      stageIndex: stageIndex,
+      objectiveIndex: objectiveIndex,
+      actionIndex: actionIndex,
+      conditionIndex: -1
     });
   };
 
@@ -170,8 +228,12 @@ export default class Panel extends Component {
                   </SiderHeader>
                   <PanelSider
                     data={data}
-                    switchQuestHandler={this.switchQuestHandler}
                     openQuest={this.state.openQuest}
+                    switchQuestHandler={this.switchQuestHandler}
+                    switchStageHandler={this.switchStageHandler}
+                    switchObjectiveHandler={this.switchObjectiveHandler}
+                    switchActionHandler={this.switchActionHandler}
+                    switchConditionHandler={this.switchConditionHandler}
                     createQuestClick={this.createQuestClick}
                     createObjectiveClick={this.createObjectiveClick}
                     createConditionClick={this.createConditionClick}
@@ -188,7 +250,14 @@ export default class Panel extends Component {
                       minWidth: "100%"
                     }}
                   >
-                    DINGDONGSUCKMYSLONG
+                    <Editor
+                      questIndex={this.state.openQuest}
+                      stageIndex={this.state.stageIndex}
+                      objectiveIndex={this.state.objectiveIndex}
+                      actionIndex={this.state.actionIndex}
+                      conditionIndex={this.state.conditionIndex}
+                      quests={data.user.quests}
+                    />
                   </Content>
                   <Footer
                     style={{

@@ -9,14 +9,16 @@ export class ConditionSelector extends Component {
       key: PropTypes.string.isRequired,
       displayName: PropTypes.string.isRequired,
       jsx: PropTypes.func.isRequired,
-      mutation: PropTypes.any.isRequired
+      mutation: PropTypes.any.isRequired,
+      update: PropTypes.any.isRequired
     }),
     conditions: PropTypes.arrayOf(
       PropTypes.shape({
         key: PropTypes.string.isRequired,
         displayName: PropTypes.string.isRequired,
         jsx: PropTypes.func.isRequired,
-        mutation: PropTypes.any.isRequired
+        mutation: PropTypes.any.isRequired,
+        update: PropTypes.any.isRequired
       })
     ).isRequired
   };

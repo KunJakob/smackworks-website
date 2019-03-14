@@ -13,16 +13,17 @@ import ReactDOM from "react-dom";
 import { App } from "./App";
 import { endpoints } from "./config/endpoints";
 import introspectionQueryResultData from "./config/fragments.json";
-import { ConditionFragments } from "./graphql/fragments/condition-fragments";
 import { AuthService } from "./services/authservice";
 import {
   conditionFormService,
   objectiveFormService,
   actionFormService
 } from "./services/form-selector";
-import { FormRegistrar } from "./services/quest-form-service";
 import * as serviceWorker from "./serviceWorker";
 import { ActionFragments } from "./graphql/fragments/action-fragments";
+import objectiveForms from "./config/form-definitions/objective-forms";
+import conditionForms from "./config/form-definitions/condition-forms";
+import { actionForms } from "./config/form-definitions/action-forms";
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
   introspectionQueryResultData
@@ -48,72 +49,6 @@ export const client = new ApolloClient({
     })
   ]),
   cache: cache
-});
-
-const objectiveFormRegistrar = new FormRegistrar();
-conditionFormService.registerFormType({
-  key: "AtTime",
-  displayName: "At Time",
-  mutation: gql`
-    mutation createAtTimeCondition(
-      $questID: ID!
-      $stageIndex: Int!
-      $objectiveIndex: Int!
-      $inverted: Boolean!
-      $time: Time!
-    ) {
-      createAtTimeCondition(
-        params: {
-          location: {
-            questID: $questID
-            stageIndex: $stageIndex
-            objectiveIndex: $objectiveIndex
-          }
-          inverted: $inverted
-          time: $time
-        }
-      ) {
-        ...FullMemberConditionData
-        ... on AtTime {
-          time
-        }
-      }
-    }
-    ${ConditionFragments.FULL_MEMBER_CONDITION_DATA}
-  `,
-  jsx: props => (
-    <>
-      <Form.Item>
-        <Dropdown
-          overlay={
-            <Menu
-              onClick={({ key }) => {
-                props.setFieldValue("time", key);
-              }}
-            >
-              <Menu.Item key="DAWN">DAWN</Menu.Item>
-              <Menu.Item key="MORNING">MORNING</Menu.Item>
-              <Menu.Item key="DAY">DAY</Menu.Item>
-              <Menu.Item key="MIDDAY">MIDDAY</Menu.Item>
-              <Menu.Item key="AFTERNOON">AFTERNOON</Menu.Item>
-              <Menu.Item key="DUSK">DUSK</Menu.Item>
-              <Menu.Item key="NIGHT">NIGHT</Menu.Item>
-              <Menu.Item key="MIDNIGHT">MIDNIGHT</Menu.Item>
-            </Menu>
-          }
-        >
-          <Button style={{ minWidth: "130px" }}>
-            <div style={{ float: "left" }}>
-              {props.values.time || "Select a Time"}
-            </div>
-            <div style={{ float: "right" }}>
-              <Icon type="down" />
-            </div>
-          </Button>
-        </Dropdown>
-      </Form.Item>
-    </>
-  )
 });
 
 actionFormService.registerFormType({
@@ -167,8 +102,9 @@ actionFormService.registerFormType({
   )
 });
 
-objectiveFormService.registerformTypes(objectiveFormRegistrar.forms);
-
+objectiveFormService.registerformTypes(objectiveForms);
+conditionFormService.registerformTypes(conditionForms);
+actionFormService.registerformTypes(actionForms);
 AuthService.verify().then(() =>
   ReactDOM.render(<App />, document.getElementById("root"))
 );

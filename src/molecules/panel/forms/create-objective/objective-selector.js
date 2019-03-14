@@ -9,14 +9,16 @@ export class ObjectiveSelector extends Component {
       key: PropTypes.string.isRequired,
       displayName: PropTypes.string.isRequired,
       jsx: PropTypes.func.isRequired,
-      mutation: PropTypes.any.isRequired
+      mutation: PropTypes.any.isRequired,
+      update: PropTypes.any.isRequired
     }),
     objectives: PropTypes.arrayOf(
       PropTypes.shape({
         key: PropTypes.string.isRequired,
         displayName: PropTypes.string.isRequired,
         jsx: PropTypes.func.isRequired,
-        mutation: PropTypes.any.isRequired
+        mutation: PropTypes.any.isRequired,
+        update: PropTypes.any.isRequired
       })
     ).isRequired
   };

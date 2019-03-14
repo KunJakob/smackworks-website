@@ -9,6 +9,10 @@ export class PanelSider extends Component {
   static propTypes = {
     data: PropTypes.object.isRequired,
     switchQuestHandler: PropTypes.func.isRequired,
+    switchStageHandler: PropTypes.func.isRequired,
+    switchObjectiveHandler: PropTypes.func.isRequired,
+    switchActionHandler: PropTypes.func.isRequired,
+    switchConditionHandler: PropTypes.func.isRequired,
     openQuest: PropTypes.number.isRequired,
     createQuestClick: PropTypes.func.isRequired,
     createObjectiveClick: PropTypes.func.isRequired,
@@ -24,7 +28,11 @@ export class PanelSider extends Component {
       createQuestClick,
       createObjectiveClick,
       createConditionClick,
-      createActionClick
+      createActionClick,
+      switchStageHandler,
+      switchObjectiveHandler,
+      switchActionHandler,
+      switchConditionHandler
     } = this.props;
     return (
       <>
@@ -53,6 +61,10 @@ export class PanelSider extends Component {
               createObjectiveClick={createObjectiveClick}
               createConditionClick={createConditionClick}
               createActionClick={createActionClick}
+              switchStageHandler={switchStageHandler}
+              switchObjectiveHandler={switchObjectiveHandler}
+              switchActionHandler={switchActionHandler}
+              switchConditionHandler={switchConditionHandler}
             />
           )}
         </div>
