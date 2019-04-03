@@ -1,4 +1,5 @@
+//most include trailing slash
 export const endpoints = {
-  auth: "https://api.smack.works:4500/",
-  api: "https://api.smack.works:4400/"
+  auth: "https://api.smack.works/",
+  api: "https://api.smack.works/graphql/"
 };

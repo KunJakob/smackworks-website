@@ -1,0 +1,8 @@
+version: "2"
+services:
+  website:
+    build: .
+    image: registry.smack.works/smackworks/website
+    restart: always
+    ports:
+      - 8080:80
