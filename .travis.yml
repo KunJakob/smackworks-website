@@ -1,30 +1,25 @@
 dist: trusty
-language: node_js
-node_js:
-  - "lts/*"
-cache: yarn
+
+services:
+  - docker
 
 env:
   - GENERATE_SOURCEMAP=false
 
 install:
-  - yarn
+  - docker-compose build
 
 script:
   - yarn build
 
 before_deploy:
-  - cd build
-  - tar -cvf smackworks-website-${TRAVIS_BUILD_ID}-${TRAVIS_BUILD_NUMBER}.tar.gz ./
-  - cd ..
+  - echo "$DOCKER_PASS" | docker login https://registry.smack.works -u "$DOCKER_USER" --password-stdin
 
 deploy:
-  provider: releases
-  api_key: "3ceead1c7d8599575c632bccdd253b58337bce44"
-  file: build/smackworks-website-${TRAVIS_BUILD_ID}-${TRAVIS_BUILD_NUMBER}.tar.gz
-  skip_cleanup: true
+  provider: script
+  script: docker-compose push
   on:
-    tags: true
+    branch: master
 
 after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh

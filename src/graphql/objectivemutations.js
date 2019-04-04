@@ -1,8 +1,8 @@
-import gql from "graphql-tag";
+/*import gql from "graphql-tag";
 import { ObjectiveFragments } from "./fragments/objective-fragments";
 
 export const ObjectiveMutations = {
-  /*   GenericObjective: gql`
+     GenericObjective: gql`
     mutation CreateGenericObjective(
       $questID: ID!
       $stageIndex: Int!
@@ -30,5 +30,6 @@ export const ObjectiveMutations = {
       }
     }
     ${ObjectiveFragments.FULL_MEMBER_OBJECTIVE_DATA}
-  ` */
+  ` 
 };
+*/

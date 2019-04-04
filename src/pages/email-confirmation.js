@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Button } from "antd";
 import { confirmEmail } from "../config/common-fetches";
 import { Redirect } from "react-router";
 import { AuthService } from "../services/authservice";
