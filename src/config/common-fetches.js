@@ -18,6 +18,21 @@ export const login = async (email, password) => {
     .catch(error => console.error("Error:", error));
 };
 
+export const confirmEmail = async id => {
+  return fetch(endpoints.auth + "account/confirmemail", {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    cache: "no-cache",
+    credentials: "omit",
+    body: id
+  })
+    .then(res => res.json())
+    .catch(error => console.error("Error:", error));
+};
+
 export const signup = async (email, password) => {
   return fetch(endpoints.auth + "account/signup", {
     method: "POST",
