@@ -5,7 +5,7 @@ import FormItem from "antd/lib/form/FormItem";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { signup } from "../../config/common-fetches";
-const moment = require("moment");
+import { AuthService } from "../../services/authservice";
 
 const FormItemWithSpacing = styled(FormItem)`
   margin-bottom: 24px;
@@ -85,26 +85,12 @@ export const FormikSignUpForm = withFormik({
       if (!response.success) {
         //TODO handle rejected login
       } else {
-        const { cookies } = bag.props;
-        cookies.set("access", response.accessToken, {
-          path: "/",
-          expires: moment()
-            .add(2, "days")
-            .toDate()
-          //TODO secure: true,
+        AuthService.login(values.email, values.password).then(loggedIn => {
+          if (loggedIn) {
+            bag.props.history.push("/panel");
+          }
         });
-        cookies.set("reset", response.refreshToken, {
-          path: "/",
-          //TODO secure: true,
-          expires: moment()
-            .add(2, "weeks")
-            .toDate()
-        });
-        //TODO Login user
       }
     });
-
-    console.log(values.email);
-    //bag.props.handleSubmit();
   }
 })(SignUpForm);

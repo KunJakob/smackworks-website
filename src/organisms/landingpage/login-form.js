@@ -78,10 +78,8 @@ const FormikLoginForm = withFormik({
     };
   },
   handleSubmit(values, bag) {
-    const { setErrors } = bag;
-    AuthService.login(values.email, values.password).then((isAuth, message) => {
+    AuthService.login(values.email, values.password).then(isAuth => {
       if (isAuth) bag.props.history.push("/panel");
-      else setErrors([message]);
     });
 
     console.log(values.email);

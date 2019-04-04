@@ -56,12 +56,6 @@ const LazySettings = () => (
   </Suspense>
 );
 
-const LazyConfirmation = () => (
-  <Suspense fallback={<Loading />}>
-    <EmailConfirmationPage />
-  </Suspense>
-);
-
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
@@ -97,6 +91,7 @@ export class App extends Component {
                   <PrivateRoute path="/panel" exact component={LazyPanel} />
                   <PrivateRoute path="/settings" component={LazyPanel} />
                   <Route path="/loading" component={LazySettings} />
+                  <Route path="/tos" component={LazyLandingPage} />
                   <Route
                     path="/confirmation"
                     component={EmailConfirmationPage}
