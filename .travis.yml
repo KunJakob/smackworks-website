@@ -9,9 +9,6 @@ env:
 install:
   - docker-compose build
 
-script:
-  - yarn build
-
 before_deploy:
   - echo "$DOCKER_PASS" | docker login https://registry.smack.works -u "$DOCKER_USER" --password-stdin
 
