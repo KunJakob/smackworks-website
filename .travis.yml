@@ -6,7 +6,7 @@ services:
 env:
   - GENERATE_SOURCEMAP=false
 
-install:
+script:
   - docker-compose build
 
 before_deploy:
