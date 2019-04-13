@@ -13,7 +13,6 @@ export const AuthService = {
       res => {
         console.log("success");
         if (res) {
-          console.log("res exists");
           res.success
             ? (AuthService.isAuthenticated = true)
             : (AuthService.isAuthenticated = false);
@@ -35,7 +34,7 @@ export const AuthService = {
   },
   requestAccessToken: async refreshToken => {
     return requestAccessToken(refreshToken).then(res => {
-      if (res.success) {
+      if (res && res.success) {
         localStorage.setItem("accessToken", res.accessToken);
         return res.accessToken;
       }
@@ -48,7 +47,7 @@ export const AuthService = {
   },
   login: async (email, password) => {
     return login(email, password).then(res => {
-      if (res.success) {
+      if (res && res.success) {
         localStorage.setItem("accessToken", res.accessToken);
         localStorage.setItem("refreshToken", res.refreshToken);
         AuthService.isAuthenticated = true;

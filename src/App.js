@@ -34,11 +34,18 @@ input:-webkit-autofill:active {
 }
 `;
 
-const LazyLandingPage = () => (
-  <Suspense fallback={<Loading />}>
-    <LandingPage />
-  </Suspense>
-);
+const LazyLandingPage = () =>
+  AuthService.isAuthenticated ? (
+    <Redirect
+      to={{
+        pathname: "/panel"
+      }}
+    />
+  ) : (
+    <Suspense fallback={<Loading />}>
+      <LandingPage />
+    </Suspense>
+  );
 const LazySignupPage = () => (
   <Suspense fallback={<Loading />}>
     <SignupPage />
@@ -77,6 +84,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 };
 
 export class App extends Component {
+  componentDidMount() {}
+
   render() {
     return (
       <BrowserRouter>

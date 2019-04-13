@@ -11,18 +11,51 @@ const Heading = styled.div`
   font-size: 48px;
 `;
 
+const Paragraph = styled.div`
+  display: block;
+  margin: auto auto;
+  text-align: center;
+  font-size: 24px;
+`;
+
 export default class SignupPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      registered: false,
+      errorMessage: ""
+    };
+  }
+
+  validSignUp() {}
+  failedSignUp(message) {
+    this.setState({
+      errorMessage: message
+    });
+  }
   render() {
     return (
       <CoverPageTemplate>
-        <div style={{ display: "flex", marginBottom: "20px" }}>
-          <Heading>Sign Up to SmackWorks</Heading>
-        </div>
-        <FormikSignUpForm
-          onSubmit={() => {
-            console.log("signed up");
-          }}
-        />
+        {!this.state.registed ? (
+          <>
+            <div style={{ display: "flex", marginBottom: "20px" }}>
+              <Heading>Sign Up to SmackWorks</Heading>
+            </div>
+            <FormikSignUpForm
+              validSignUp={this.validSignUp}
+              failedSignUp={this.failedSignUp}
+            />
+          </>
+        ) : (
+          <>
+            <Heading>Registration received!</Heading>
+            <Paragraph>
+              An email with a link to finish registration has been sent to you.
+              Please check your spam folder if you cannot find it.
+            </Paragraph>
+          </>
+        )}
       </CoverPageTemplate>
     );
   }

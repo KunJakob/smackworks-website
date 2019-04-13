@@ -5,7 +5,6 @@ import FormItem from "antd/lib/form/FormItem";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { signup } from "../../config/common-fetches";
-import { AuthService } from "../../services/authservice";
 
 const FormItemWithSpacing = styled(FormItem)`
   margin-bottom: 24px;
@@ -83,13 +82,9 @@ export const FormikSignUpForm = withFormik({
   handleSubmit(values, bag) {
     signup(values.email, values.password).then(response => {
       if (!response.success) {
-        //TODO handle rejected login
+        bag.props.failedSignUp(response.message);
       } else {
-        AuthService.login(values.email, values.password).then(loggedIn => {
-          if (loggedIn) {
-            bag.props.history.push("/panel");
-          }
-        });
+        bag.props.validSignUp();
       }
     });
   }
