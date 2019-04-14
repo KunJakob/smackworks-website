@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { UpdateConditionForm } from "./forms/update-forms/update-condition";
 import { USER_QUESTS_QUERY } from "../../graphql/queriesandmutations";
 import { Mutation, withApollo } from "react-apollo";
-import { conditionFormService } from "../../services/form-selector";
+import { conditionFormService } from "../../state/form-selector";
 import { merge } from "lodash";
 
 class RawEditor extends Component {

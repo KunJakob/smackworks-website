@@ -7,23 +7,23 @@ import ApolloClient from "apollo-client";
 import { ApolloLink } from "apollo-link";
 import { onError } from "apollo-link-error";
 import { HttpLink } from "apollo-link-http";
-import gql from "graphql-tag";
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 import { endpoints } from "./config/endpoints";
 import introspectionQueryResultData from "./config/fragments.json";
-import { AuthService } from "./services/authservice";
+import { authState } from "./state/auth";
 import {
   conditionFormService,
   objectiveFormService,
   actionFormService
-} from "./services/form-selector";
+} from "./state/form-selector";
 import * as serviceWorker from "./serviceWorker";
 import { ActionFragments } from "./graphql/fragments/action-fragments";
 import objectiveForms from "./config/form-definitions/objective-forms";
 import conditionForms from "./config/form-definitions/condition-forms";
 import { actionForms } from "./config/form-definitions/action-forms";
+import gql from "graphql-tag";
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
   introspectionQueryResultData
@@ -106,7 +106,7 @@ objectiveFormService.registerformTypes(objectiveForms);
 conditionFormService.registerformTypes(conditionForms);
 actionFormService.registerformTypes(actionForms);
 ReactDOM.render(<App />, document.getElementById("root"));
-AuthService.verify();
+authState.verify();
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA

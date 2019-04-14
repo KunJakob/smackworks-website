@@ -29,8 +29,14 @@ export const confirmEmail = async id => {
     credentials: "omit",
     body: id
   })
-    .then(res => res.json())
-    .catch(error => console.error("Error:", error));
+    .then(async res =>
+      res.json().then(value => {
+        if (value.success) {
+          return value;
+        } else throw new Error(value.message);
+      })
+    )
+    .catch(error => console.error(error));
 };
 
 export const signup = async (email, password) => {
@@ -47,8 +53,14 @@ export const signup = async (email, password) => {
       password: password
     })
   })
-    .then(res => res.json())
-    .catch(error => console.error("Error:", error));
+    .then(async res =>
+      res.json().then(value => {
+        if (value.success) {
+          return value;
+        } else throw new Error(value.message);
+      })
+    )
+    .catch(error => console.error(error));
 };
 
 export const verify = async accessToken => {
@@ -64,8 +76,14 @@ export const verify = async accessToken => {
       accessToken: accessToken
     })
   })
-    .then(res => res.json())
-    .catch(error => console.error("Error:", error));
+    .then(async res =>
+      res.json().then(value => {
+        if (value.success) {
+          return value;
+        } else throw new Error(value.message);
+      })
+    )
+    .catch(error => console.error(error));
 };
 
 export const requestAccessToken = async refreshToken => {
@@ -82,7 +100,7 @@ export const requestAccessToken = async refreshToken => {
     })
   })
     .then(res => res.json())
-    .catch(error => console.error("Error:", error));
+    .catch(error => console.error(error));
 };
 
 export const logout = async refreshToken => {
@@ -98,6 +116,12 @@ export const logout = async refreshToken => {
       refreshToken: refreshToken
     })
   })
-    .then(res => res.json())
-    .catch(error => console.error("Error:", error));
+    .then(async res =>
+      res.json().then(value => {
+        if (value.success) {
+          return value;
+        } else throw new Error(value.message);
+      })
+    )
+    .catch(error => console.error(error));
 };

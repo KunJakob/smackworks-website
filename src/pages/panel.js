@@ -11,7 +11,7 @@ import {
   objectiveFormService,
   conditionFormService,
   actionFormService
-} from "../services/form-selector";
+} from "../state/form-selector";
 import { CreateActionModal } from "../molecules/panel/forms/create-action/create-action-modal";
 import { CreateObjectiveModal } from "../molecules/panel/forms/create-objective/create-objective-modal";
 import { CreateQuestModal } from "../molecules/panel/forms/create-quest-modal";

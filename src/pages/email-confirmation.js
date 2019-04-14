@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { confirmEmail } from "../config/common-fetches";
 import { Redirect } from "react-router";
-import { AuthService } from "../services/authservice";
+import { authState } from "../state/auth";
 
 export default class EmailConfirmationPage extends Component {
   state = {
@@ -12,14 +12,18 @@ export default class EmailConfirmationPage extends Component {
   id = this.params.get("id");
 
   render() {
-    confirmEmail(this.id).then(res => {
-      this.setState({
-        signedUp: true
-      });
-      localStorage.setItem("accessToken", res.accessToken);
-      localStorage.setItem("refreshToken", res.refreshToken);
-      AuthService.isAuthenticated = true;
-    });
+    confirmEmail(this.id)
+      .then(res => {
+        if (res.success) {
+          this.setState({
+            signedUp: true
+          });
+          localStorage.setItem("accessToken", res.accessToken);
+          localStorage.setItem("refreshToken", res.refreshToken);
+          authState.verify();
+        }
+      })
+      .catch(error => console.error(error));
     return (
       <>
         <p>Signed up! Redirecting...</p>

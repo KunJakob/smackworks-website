@@ -3,13 +3,15 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { LoginModal } from "./../organisms/landingpage/login-modal";
 import { Navbar } from "./../organisms/landingpage/coverpage-navbar";
-import { AuthService } from "./../services/authservice";
+import { authState } from "./../state/auth";
 import { withRouter } from "react-router";
+import { observer } from "mobx-react";
 
 const PaddedContentContainer = styled.div`
   padding-top: 87px;
 `;
 
+@observer
 class RawCoverPageTemplate extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,7 @@ class RawCoverPageTemplate extends Component {
     };
   }
   signInClick = () => {
-    if (AuthService.isAuthenticated) {
+    if (authState.isAuthenticated) {
       this.props.history.push("/panel");
       return;
     }

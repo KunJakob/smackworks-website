@@ -1,4 +1,4 @@
-import { QuestFormField } from "../../services/quest-form-field-container";
+import { QuestFormField } from "../../state/quest-form-field-container";
 import { ConditionFragments } from "../../graphql/fragments/condition-fragments";
 import gql from "graphql-tag";
 import React from "react";

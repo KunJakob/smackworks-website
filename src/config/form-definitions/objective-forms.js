@@ -2,7 +2,7 @@ import { ObjectiveFragments } from "../../graphql/fragments/objective-fragments"
 import gql from "graphql-tag";
 import { Input, Form } from "antd";
 import React from "react";
-import { QuestFormField } from "../../services/quest-form-field-container";
+import { QuestFormField } from "../../state/quest-form-field-container";
 
 const objectiveForms = [];
 

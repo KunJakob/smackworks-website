@@ -11,13 +11,13 @@ import { client } from "./index";
 import Loading from "./pages/loading";
 import Settings from "./pages/settings";
 import SignupPage from "./pages/signup";
-import { AuthService } from "./services/authservice";
 import {
   actionFormService,
   conditionFormService,
   objectiveFormService
-} from "./services/form-selector";
+} from "./state/form-selector";
 import EmailConfirmationPage from "./pages/email-confirmation";
+import { observer } from "mobx-react";
 
 const LandingPage = React.lazy(() => import("./pages/landingpage"));
 const Panel = React.lazy(() => import("./pages/panel"));
@@ -34,8 +34,8 @@ input:-webkit-autofill:active {
 }
 `;
 
-const LazyLandingPage = () =>
-  AuthService.isAuthenticated ? (
+const LazyLandingPage = observer(({ authState }) =>
+  authState.isAuthenticated ? (
     <Redirect
       to={{
         pathname: "/panel"
@@ -45,7 +45,8 @@ const LazyLandingPage = () =>
     <Suspense fallback={<Loading />}>
       <LandingPage />
     </Suspense>
-  );
+  )
+);
 const LazySignupPage = () => (
   <Suspense fallback={<Loading />}>
     <SignupPage />
@@ -63,25 +64,27 @@ const LazySettings = () => (
   </Suspense>
 );
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        AuthService.isAuthenticated ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/",
-              state: { from: props.location }
-            }}
-          />
-        )
-      }
-    />
-  );
-};
+const PrivateRoute = observer(
+  ({ authState }) => ({ component: Component, ...rest }) => {
+    return (
+      <Route
+        {...rest}
+        render={props =>
+          authState.isAuthenticated ? (
+            <Component {...props} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/",
+                state: { from: props.location }
+              }}
+            />
+          )
+        }
+      />
+    );
+  }
+);
 
 export class App extends Component {
   componentDidMount() {}

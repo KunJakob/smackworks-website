@@ -3,7 +3,7 @@ import {
   objectiveFormService,
   conditionFormService,
   actionFormService
-} from "../services/form-selector";
+} from "../state/form-selector";
 
 export const ObjectiveFormContext = React.createContext(objectiveFormService);
 export const ConditionFormContext = React.createContext(conditionFormService);
