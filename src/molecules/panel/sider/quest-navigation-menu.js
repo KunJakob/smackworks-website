@@ -10,7 +10,7 @@ import {
   actionFormService,
   conditionFormService,
   objectiveFormService
-} from "../../../services/form-selector";
+} from "../../../state/form-selector";
 
 const bgColor = "#2f3136";
 const SubMenu = Menu.SubMenu;

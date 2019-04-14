@@ -1,11 +1,10 @@
-import { Button, Icon, Input, Switch } from "antd";
-import FormItem from "antd/lib/form/FormItem";
+import { Button, Icon, Input, Switch, Form as AntForm } from "antd";
 import { Form, withFormik } from "formik";
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import styled from "styled-components";
 
-const FormItemWithSpacing = styled(FormItem)`
+const FormItemWithSpacing = styled(AntForm.Item)`
   margin-bottom: 24px;
 `;
 
@@ -47,7 +46,7 @@ class RawCreateQuestForm extends Component {
               unCheckedChildren={<Icon type="close" />}
             />
           </FormItemWithSpacing>
-          <FormItem>
+          <AntForm.Item>
             <Button
               type="primary"
               htmlType="submit"
@@ -56,7 +55,7 @@ class RawCreateQuestForm extends Component {
             >
               Create
             </Button>
-          </FormItem>
+          </AntForm.Item>
         </div>
       </Form>
     );

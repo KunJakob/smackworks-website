@@ -1,12 +1,11 @@
 import React from "react";
-import { Icon, Input, Button } from "antd";
+import { Icon, Input, Button, Form as AntForm } from "antd";
 import { withFormik, Form } from "formik";
-import FormItem from "antd/lib/form/FormItem";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { signup } from "../../config/common-fetches";
 
-const FormItemWithSpacing = styled(FormItem)`
+const FormItemWithSpacing = styled(AntForm.Item)`
   margin-bottom: 24px;
 `;
 
@@ -54,7 +53,7 @@ const SignUpForm = ({ values, handleChange, handleSubmit }) => (
           onChange={handleChange}
         />
       </FormItemWithSpacing>
-      <FormItem>
+      <AntForm.Item>
         <div style={{ textAlign: "center" }}>
           By clicking Sign Up you agree to the{" "}
           <Link to="/tos">Terms of Service</Link>
@@ -66,7 +65,7 @@ const SignUpForm = ({ values, handleChange, handleSubmit }) => (
         >
           Sign Up
         </Button>
-      </FormItem>
+      </AntForm.Item>
     </div>
   </Form>
 );

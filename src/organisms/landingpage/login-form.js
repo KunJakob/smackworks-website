@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import { Icon, Input, Button } from "antd";
+import { Icon, Input, Button, Form as AntForm } from "antd";
 import { withFormik, Form } from "formik";
-import FormItem from "antd/lib/form/FormItem";
 import styled from "styled-components";
 import { withRouter } from "react-router";
-import { AuthService } from "../../services/authservice";
-
-const FormItemWithSpacing = styled(FormItem)`
+import { authState } from "../../state/auth";
+import { observer } from "mobx-react";
+const FormItemWithSpacing = styled(AntForm.Item)`
   margin-bottom: 24px;
 `;
-
+@observer
 class DumbLoginForm extends Component {
   state = {};
   render() {
@@ -46,7 +45,7 @@ class DumbLoginForm extends Component {
               onChange={this.props.handleChange}
             />
           </FormItemWithSpacing>
-          <FormItem>
+          <AntForm.Item>
             <Button
               type="primary"
               htmlType="submit"
@@ -63,7 +62,7 @@ class DumbLoginForm extends Component {
             >
               Forgot password
             </a>
-          </FormItem>
+          </AntForm.Item>
         </div>
       </Form>
     );
@@ -78,11 +77,7 @@ const FormikLoginForm = withFormik({
     };
   },
   handleSubmit(values, bag) {
-    AuthService.login(values.email, values.password).then(isAuth => {
-      if (isAuth) bag.props.history.push("/panel");
-    });
-
-    console.log(values.email);
+    authState.login(values.email, values.password);
   }
 })(DumbLoginForm);
 
