@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React,  { Component, Fragment } from "react";
 import { QuestNavigationMenu } from "../../molecules/panel/sider/quest-navigation-menu";
 import { QuestSelector } from "../../molecules/panel/sider/quest-selector";
 import PropTypes from "prop-types";
@@ -35,7 +35,7 @@ export class PanelSider extends Component {
       switchConditionHandler
     } = this.props;
     return (
-      <>
+      <Fragment>
         <div
           style={{
             borderBottomStyle: "solid",
@@ -68,7 +68,7 @@ export class PanelSider extends Component {
             />
           )}
         </div>
-      </>
+      </Fragment>
     );
   }
 }

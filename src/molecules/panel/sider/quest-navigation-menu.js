@@ -1,21 +1,23 @@
 import { Menu } from "antd";
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { CreateActionButton } from "../../../atoms/quest-sidenav/create-action-button";
 import { CreateConditionButton } from "../../../atoms/quest-sidenav/create-condition-button";
 import { CreateObjectiveButton } from "../../../atoms/quest-sidenav/create-objective-button";
 import { CreateStageButton } from "../../../atoms/quest-sidenav/create-stage-button";
 import {
-  actionFormService,
-  conditionFormService,
-  objectiveFormService
+  objectiveFormState,
+  conditionFormState,
+  actionFormState
 } from "../../../state/form-selector";
+import { observer } from "mobx-react";
 
 const bgColor = "#2f3136";
 const SubMenu = Menu.SubMenu;
 
-export class QuestNavigationMenu extends Component {
+@observer
+class QuestNavigationMenu extends Component {
   static propTypes = {
     quest: PropTypes.object.isRequired,
     questIndex: PropTypes.number.isRequired,
@@ -41,7 +43,7 @@ export class QuestNavigationMenu extends Component {
       switchConditionHandler
     } = this.props;
     return (
-      <>
+      <Fragment>
         <Scrollbars
           style={{
             height: "80vh",
@@ -89,7 +91,7 @@ export class QuestNavigationMenu extends Component {
                         }
                         title={
                           //Switchify this?
-                          objectiveFormService.getDisplayName(
+                          objectiveFormState.getDisplayName(
                             objective.genericType ||
                               objective.uuidType ||
                               objective.fieldType ||
@@ -125,7 +127,7 @@ export class QuestNavigationMenu extends Component {
                                   )
                                 }
                               >
-                                {conditionFormService.getDisplayName(
+                                {conditionFormState.getDisplayName(
                                   condition.__typename
                                 )}
                               </Menu.Item>
@@ -157,7 +159,7 @@ export class QuestNavigationMenu extends Component {
                                   )
                                 }
                               >
-                                {actionFormService.getDisplayName(
+                                {actionFormState.getDisplayName(
                                   action.__typename
                                 )}
                               </Menu.Item>
@@ -185,7 +187,9 @@ export class QuestNavigationMenu extends Component {
             <CreateStageButton questID={quest.id} questIndex={questIndex} />
           </Menu>
         </Scrollbars>
-      </>
+      </Fragment>
     );
   }
 }
+
+export { QuestNavigationMenu };

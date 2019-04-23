@@ -1,7 +1,7 @@
 import { QuestFormField } from "../../state/quest-form-field-container";
 import { ConditionFragments } from "../../graphql/fragments/condition-fragments";
 import gql from "graphql-tag";
-import React from "react";
+import React, { Fragment } from "react";
 import { Form, Dropdown, Menu, Button, Icon } from "antd";
 const conditionForms = [];
 
@@ -10,7 +10,7 @@ conditionForms.push(
     "AtTime",
     "At Time",
     props => (
-      <>
+      <Fragment>
         <Form.Item>
           <Dropdown
             overlay={
@@ -40,7 +40,7 @@ conditionForms.push(
             </Button>
           </Dropdown>
         </Form.Item>
-      </>
+      </Fragment>
     ),
     gql`
       mutation createAtTimeCondition(

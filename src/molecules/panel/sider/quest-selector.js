@@ -1,5 +1,5 @@
 import { Button, Dropdown, Icon, Menu } from "antd";
-import React, { Component } from "react";
+import React,  { Component, Fragment } from "react";
 import { QuestList } from "../../../atoms/quest-sidenav/quest-list";
 import PropTypes from "prop-types";
 
@@ -33,7 +33,7 @@ export class QuestSelector extends Component {
       createQuestClick
     } = this.props;
     return (
-      <>
+      <Fragment>
         <Dropdown
           trigger={["click"]}
           placement="bottomRight"
@@ -66,7 +66,7 @@ export class QuestSelector extends Component {
             </div>
           </Button>
         </Dropdown>
-      </>
+      </Fragment>
     );
   }
 }

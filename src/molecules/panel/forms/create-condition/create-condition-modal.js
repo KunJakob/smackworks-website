@@ -23,7 +23,6 @@ export class CreateConditionModal extends Component {
     questID: PropTypes.string.isRequired,
     stageIndex: PropTypes.number.isRequired,
     objectiveIndex: PropTypes.number.isRequired,
-    conditions: PropTypes.array.isRequired,
     visible: PropTypes.bool.isRequired,
     onOk: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired
@@ -48,7 +47,6 @@ export class CreateConditionModal extends Component {
       visible,
       onOk,
       onCancel,
-      conditions,
       stageIndex,
       objectiveIndex,
       questID
@@ -83,7 +81,6 @@ export class CreateConditionModal extends Component {
         </Steps>
         {this.state.step === 0 && (
           <ConditionSelector
-            conditions={conditions}
             selectedCondition={this.state.selectedCondition}
             setSelectedCondition={this.setSelectedCondition}
           />

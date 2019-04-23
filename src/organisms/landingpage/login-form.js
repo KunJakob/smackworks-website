@@ -3,7 +3,7 @@ import { Icon, Input, Button, Form as AntForm } from "antd";
 import { withFormik, Form } from "formik";
 import styled from "styled-components";
 import { withRouter } from "react-router";
-import { authState } from "../../state/auth";
+import { AuthState } from "../../state/auth";
 import { observer } from "mobx-react";
 const FormItemWithSpacing = styled(AntForm.Item)`
   margin-bottom: 24px;
@@ -77,7 +77,7 @@ const FormikLoginForm = withFormik({
     };
   },
   handleSubmit(values, bag) {
-    authState.login(values.email, values.password);
+    AuthState.login(values.email, values.password);
   }
 })(DumbLoginForm);
 

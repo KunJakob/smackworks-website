@@ -55,7 +55,8 @@ export const signup = async (email, password) => {
   })
     .then(async res =>
       res.json().then(value => {
-        if (value.success) {
+        console.log(value);
+        if (value && value.success) {
           return value;
         } else throw new Error(value.message);
       })

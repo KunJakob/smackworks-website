@@ -21,7 +21,6 @@ export class CreateObjectiveModal extends Component {
   static propTypes = {
     questID: PropTypes.string.isRequired,
     stageIndex: PropTypes.number.isRequired,
-    objectives: PropTypes.array.isRequired,
     visible: PropTypes.bool.isRequired,
     onOk: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired
@@ -42,14 +41,7 @@ export class CreateObjectiveModal extends Component {
   };
 
   render() {
-    const {
-      visible,
-      onOk,
-      onCancel,
-      objectives,
-      stageIndex,
-      questID
-    } = this.props;
+    const { visible, onOk, onCancel, stageIndex, questID } = this.props;
     return (
       <Modal
         destroyOnClose={true}
@@ -80,7 +72,6 @@ export class CreateObjectiveModal extends Component {
         </Steps>
         {this.state.step === 0 && (
           <ObjectiveSelector
-            objectives={objectives}
             selectedObjective={this.state.selectedObjective}
             setSelectedObjective={this.setSelectedObjective}
           />

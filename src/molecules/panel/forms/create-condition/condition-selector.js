@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { Icon, Menu, Dropdown, Button } from "antd";
+import { conditionFormState } from "../../../../state/form-selector";
 
 export class ConditionSelector extends Component {
   static propTypes = {
@@ -11,21 +12,12 @@ export class ConditionSelector extends Component {
       jsx: PropTypes.func.isRequired,
       mutation: PropTypes.any.isRequired,
       update: PropTypes.any.isRequired
-    }),
-    conditions: PropTypes.arrayOf(
-      PropTypes.shape({
-        key: PropTypes.string.isRequired,
-        displayName: PropTypes.string.isRequired,
-        jsx: PropTypes.func.isRequired,
-        mutation: PropTypes.any.isRequired,
-        update: PropTypes.any.isRequired
-      })
-    ).isRequired
+    })
   };
 
   render() {
     return (
-      <>
+      <Fragment>
         <Dropdown
           trigger={["click"]}
           placement="bottomRight"
@@ -36,7 +28,7 @@ export class ConditionSelector extends Component {
                 this.props.setSelectedCondition(e.item.props.condition);
               }}
             >
-              {this.props.conditions.map((condition, index) => {
+              {conditionFormState.formArray.map((condition, index) => {
                 return (
                   <Menu.Item condition={condition} key={index}>
                     {condition.displayName}
@@ -57,7 +49,7 @@ export class ConditionSelector extends Component {
             </div>
           </Button>
         </Dropdown>
-      </>
+      </Fragment>
     );
   }
 }

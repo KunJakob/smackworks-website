@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { confirmEmail } from "../config/common-fetches";
 import { Redirect } from "react-router";
-import { authState } from "../state/auth";
+import { AuthState } from "../state/auth";
 
 export default class EmailConfirmationPage extends Component {
   state = {
@@ -20,12 +20,12 @@ export default class EmailConfirmationPage extends Component {
           });
           localStorage.setItem("accessToken", res.accessToken);
           localStorage.setItem("refreshToken", res.refreshToken);
-          authState.verify();
+          AuthState.verify();
         }
       })
       .catch(error => console.error(error));
     return (
-      <>
+      <Fragment>
         <p>Signed up! Redirecting...</p>
         <Redirect
           to={{
@@ -33,7 +33,7 @@ export default class EmailConfirmationPage extends Component {
             state: { from: this.props.location }
           }}
         />
-      </>
+      </Fragment>
     );
   }
 }

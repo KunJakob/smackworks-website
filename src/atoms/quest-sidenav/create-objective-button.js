@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React,  { Component, Fragment } from "react";
 import { Menu } from "antd";
 import { Icon } from "antd";
 import PropTypes from "prop-types";
@@ -13,7 +13,7 @@ export class CreateObjectiveButton extends Component {
   render() {
     const { questID, stageIndex, createObjectiveClick, ...props } = this.props;
     return (
-      <>
+      <Fragment>
         <Menu.Item
           key={questID + stageIndex + "createObjective"}
           {...props}
@@ -27,7 +27,7 @@ export class CreateObjectiveButton extends Component {
           <Icon type="plus" />
           Create Objective
         </Menu.Item>
-      </>
+      </Fragment>
     );
   }
 }

@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { Icon, Menu, Dropdown, Button } from "antd";
+import { objectiveFormState } from "../../../../state/form-selector";
 
 export class ObjectiveSelector extends Component {
   static propTypes = {
@@ -11,21 +12,12 @@ export class ObjectiveSelector extends Component {
       jsx: PropTypes.func.isRequired,
       mutation: PropTypes.any.isRequired,
       update: PropTypes.any.isRequired
-    }),
-    objectives: PropTypes.arrayOf(
-      PropTypes.shape({
-        key: PropTypes.string.isRequired,
-        displayName: PropTypes.string.isRequired,
-        jsx: PropTypes.func.isRequired,
-        mutation: PropTypes.any.isRequired,
-        update: PropTypes.any.isRequired
-      })
-    ).isRequired
+    })
   };
 
   render() {
     return (
-      <>
+      <Fragment>
         <Dropdown
           trigger={["click"]}
           placement="bottomRight"
@@ -36,7 +28,7 @@ export class ObjectiveSelector extends Component {
                 this.props.setSelectedObjective(e.item.props.obj);
               }}
             >
-              {this.props.objectives.map((obj, index) => {
+              {objectiveFormState.formArray.map((obj, index) => {
                 return (
                   <Menu.Item obj={obj} key={index}>
                     {obj.displayName}
@@ -57,7 +49,7 @@ export class ObjectiveSelector extends Component {
             </div>
           </Button>
         </Dropdown>
-      </>
+      </Fragment>
     );
   }
 }

@@ -7,23 +7,23 @@ import ApolloClient from "apollo-client";
 import { ApolloLink } from "apollo-link";
 import { onError } from "apollo-link-error";
 import { HttpLink } from "apollo-link-http";
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 import { endpoints } from "./config/endpoints";
 import introspectionQueryResultData from "./config/fragments.json";
-import { authState } from "./state/auth";
-import {
-  conditionFormService,
-  objectiveFormService,
-  actionFormService
-} from "./state/form-selector";
+import { AuthState } from "./state/auth";
 import * as serviceWorker from "./serviceWorker";
 import { ActionFragments } from "./graphql/fragments/action-fragments";
 import objectiveForms from "./config/form-definitions/objective-forms";
 import conditionForms from "./config/form-definitions/condition-forms";
 import { actionForms } from "./config/form-definitions/action-forms";
 import gql from "graphql-tag";
+import {
+  actionFormState,
+  objectiveFormState,
+  conditionFormState
+} from "./state/form-selector";
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
   introspectionQueryResultData
@@ -51,7 +51,7 @@ export const client = new ApolloClient({
   cache: cache
 });
 
-actionFormService.registerFormType({
+actionFormState.registerFormType({
   key: "ExecuteCommand",
   displayName: "Execute Command",
   mutation: gql`
@@ -82,7 +82,7 @@ actionFormService.registerFormType({
     ${ActionFragments.FULL_MEMBER_ACTION_DATA}
   `,
   jsx: props => (
-    <>
+    <Fragment>
       <Form.Item>
         <div>
           <Tooltip title="%p is the placeholder for playername">
@@ -98,15 +98,15 @@ actionFormService.registerFormType({
           value={props.values.command}
         />
       </Form.Item>
-    </>
+    </Fragment>
   )
 });
 
-objectiveFormService.registerformTypes(objectiveForms);
-conditionFormService.registerformTypes(conditionForms);
-actionFormService.registerformTypes(actionForms);
+objectiveFormState.registerformTypes(objectiveForms);
+conditionFormState.registerformTypes(conditionForms);
+actionFormState.registerformTypes(actionForms);
 ReactDOM.render(<App />, document.getElementById("root"));
-authState.verify();
+AuthState.verify();
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA

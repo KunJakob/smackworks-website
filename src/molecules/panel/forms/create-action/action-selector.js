@@ -1,8 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { Icon, Menu, Dropdown, Button } from "antd";
+import { observer } from "mobx-react";
+import { actionFormState } from "../../../../state/form-selector";
 
-export class ActionSelector extends Component {
+@observer
+class ActionSelector extends Component {
   static propTypes = {
     setSelectedAction: PropTypes.func.isRequired,
     selectedAction: PropTypes.shape({
@@ -11,21 +14,12 @@ export class ActionSelector extends Component {
       jsx: PropTypes.func.isRequired,
       mutation: PropTypes.any.isRequired,
       update: PropTypes.any.isRequired
-    }),
-    actions: PropTypes.arrayOf(
-      PropTypes.shape({
-        key: PropTypes.string.isRequired,
-        displayName: PropTypes.string.isRequired,
-        jsx: PropTypes.func.isRequired,
-        mutation: PropTypes.any.isRequired,
-        update: PropTypes.any.isRequired
-      })
-    ).isRequired
+    })
   };
 
   render() {
     return (
-      <>
+      <Fragment>
         <Dropdown
           trigger={["click"]}
           placement="bottomRight"
@@ -36,7 +30,7 @@ export class ActionSelector extends Component {
                 this.props.setSelectedAction(e.item.props.action);
               }}
             >
-              {this.props.actions.map((action, index) => {
+              {actionFormState.formArray.map((action, index) => {
                 return (
                   <Menu.Item action={action} key={index}>
                     {action.displayName}
@@ -57,7 +51,9 @@ export class ActionSelector extends Component {
             </div>
           </Button>
         </Dropdown>
-      </>
+      </Fragment>
     );
   }
 }
+
+export { ActionSelector };

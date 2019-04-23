@@ -5,10 +5,12 @@ import { Mutation } from "react-apollo";
 import { USER_QUESTS_QUERY } from "../../../../graphql/queriesandmutations";
 import { ActionSelector } from "./action-selector";
 import { CreateActionForm } from "./create-action";
+import { observer } from "mobx-react";
 
 const Step = Steps.Step;
 
-export class CreateActionModal extends Component {
+@observer
+class CreateActionModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +25,6 @@ export class CreateActionModal extends Component {
     questID: PropTypes.string.isRequired,
     stageIndex: PropTypes.number.isRequired,
     objectiveIndex: PropTypes.number.isRequired,
-    actions: PropTypes.array.isRequired,
     visible: PropTypes.bool.isRequired,
     onOk: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired
@@ -48,7 +49,6 @@ export class CreateActionModal extends Component {
       visible,
       onOk,
       onCancel,
-      actions,
       stageIndex,
       objectiveIndex,
       questID
@@ -83,7 +83,6 @@ export class CreateActionModal extends Component {
         </Steps>
         {this.state.step === 0 && (
           <ActionSelector
-            actions={actions}
             selectedAction={this.state.selectedAction}
             setSelectedAction={this.setSelectedAction}
           />
@@ -111,7 +110,7 @@ export class CreateActionModal extends Component {
             }}
             mutation={this.state.selectedAction.mutation}
           >
-            {(createAction, { data }) => (
+            {createAction => (
               <CreateActionForm
                 extraFormFields={this.state.selectedAction.jsx}
                 successCallback={values => {
@@ -125,7 +124,7 @@ export class CreateActionModal extends Component {
                   console.log("vars", variables);
                   createAction({
                     variables
-                  }).then(res => {
+                  }).then(() => {
                     onOk();
                   });
                 }}
@@ -137,3 +136,5 @@ export class CreateActionModal extends Component {
     );
   }
 }
+
+export { CreateActionModal };

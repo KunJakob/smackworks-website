@@ -1,11 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { UpdateConditionForm } from "./forms/update-forms/update-condition";
 import { USER_QUESTS_QUERY } from "../../graphql/queriesandmutations";
 import { Mutation, withApollo } from "react-apollo";
-import { conditionFormService } from "../../state/form-selector";
 import { merge } from "lodash";
+import { conditionFormState } from "../../state/form-selector";
+import { observer } from "mobx-react";
 
+@observer
 class RawEditor extends Component {
   static propTypes = {
     questIndex: PropTypes.number.isRequired,
@@ -31,7 +33,7 @@ class RawEditor extends Component {
     const hasCondition = conditionIndex >= 0;
     const hasAction = actionIndex >= 0;
     if (!hasStage && !hasObjective && !hasCondition && !hasAction) {
-      return <>Select a quest to begin</>;
+      return <Fragment>Select a quest to begin</Fragment>;
     } else {
       if (hasCondition) {
         const data = this.props.client.cache.readQuery({
@@ -41,7 +43,7 @@ class RawEditor extends Component {
           data.user.quests[questIndex].stages[stageIndex].objectives[
             objectiveIndex
           ].conditions[conditionIndex];
-        const form = conditionFormService.getForm(cachedCondition.__typename);
+        const form = conditionFormState.getForm(cachedCondition.__typename);
         return (
           <Mutation
             update={(cache, { data }) => {
@@ -94,7 +96,7 @@ class RawEditor extends Component {
           </Mutation>
         );
       }
-      return <></>;
+      return <Fragment />;
     }
   }
 }

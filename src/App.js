@@ -1,23 +1,16 @@
 import React, { Component, Suspense } from "react";
 import { ApolloProvider } from "react-apollo";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
-import {
-  ActionFormContext,
-  ConditionFormContext,
-  ObjectiveFormContext
-} from "./contexts/form-contexts";
+
 import { client } from "./index";
 import Loading from "./pages/loading";
 import Settings from "./pages/settings";
 import SignupPage from "./pages/signup";
-import {
-  actionFormService,
-  conditionFormService,
-  objectiveFormService
-} from "./state/form-selector";
-import EmailConfirmationPage from "./pages/email-confirmation";
-import { observer } from "mobx-react";
+
+const EmailConfirmationPage = React.lazy(() =>
+  import("./pages/email-confirmation")
+);
 
 const LandingPage = React.lazy(() => import("./pages/landingpage"));
 const Panel = React.lazy(() => import("./pages/panel"));
@@ -34,19 +27,18 @@ input:-webkit-autofill:active {
 }
 `;
 
-const LazyLandingPage = observer(({ authState }) =>
-  authState.isAuthenticated ? (
-    <Redirect
-      to={{
-        pathname: "/panel"
-      }}
-    />
-  ) : (
-    <Suspense fallback={<Loading />}>
-      <LandingPage />
-    </Suspense>
-  )
+const LazyEmailConfirmationPage = () => (
+  <Suspense fallback={<Loading />}>
+    <EmailConfirmationPage />
+  </Suspense>
 );
+
+const LazyLandingPage = () => (
+  <Suspense fallback={<Loading />}>
+    <LandingPage />
+  </Suspense>
+);
+
 const LazySignupPage = () => (
   <Suspense fallback={<Loading />}>
     <SignupPage />
@@ -64,27 +56,9 @@ const LazySettings = () => (
   </Suspense>
 );
 
-const PrivateRoute = observer(
-  ({ authState }) => ({ component: Component, ...rest }) => {
-    return (
-      <Route
-        {...rest}
-        render={props =>
-          authState.isAuthenticated ? (
-            <Component {...props} />
-          ) : (
-            <Redirect
-              to={{
-                pathname: "/",
-                state: { from: props.location }
-              }}
-            />
-          )
-        }
-      />
-    );
-  }
-);
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  return <Route {...rest} render={props => <Component {...props} />} />;
+};
 
 export class App extends Component {
   componentDidMount() {}
@@ -93,25 +67,15 @@ export class App extends Component {
     return (
       <BrowserRouter>
         <ApolloProvider client={client}>
-          <ObjectiveFormContext.Provider value={objectiveFormService}>
-            <ConditionFormContext.Provider value={conditionFormService}>
-              <ActionFormContext.Provider value={actionFormService}>
-                <GlobalStyle />
-                <Switch>
-                  <Route path="/" exact component={LazyLandingPage} />
-                  <Route path="/signup" component={LazySignupPage} />
-                  <PrivateRoute path="/panel" exact component={LazyPanel} />
-                  <PrivateRoute path="/settings" component={LazyPanel} />
-                  <Route path="/loading" component={LazySettings} />
-                  <Route path="/tos" component={LazyLandingPage} />
-                  <Route
-                    path="/confirmation"
-                    component={EmailConfirmationPage}
-                  />
-                </Switch>
-              </ActionFormContext.Provider>
-            </ConditionFormContext.Provider>
-          </ObjectiveFormContext.Provider>
+          <GlobalStyle />
+          <Switch>
+            <Route path="/" exact component={LazyLandingPage} />
+            <Route path="/signup" component={LazySignupPage} />
+            <PrivateRoute path="/panel" component={LazyPanel} />
+            <Route path="/loading" component={LazySettings} />
+            <Route path="/tos" component={LazyLandingPage} />
+            <Route path="/confirmation" component={LazyEmailConfirmationPage} />
+          </Switch>
         </ApolloProvider>
       </BrowserRouter>
     );

@@ -1,22 +1,17 @@
-export const getObjectiveForm = selectedObjective => {
-  switch (selectedObjective) {
-    case "GenericObjective":
-      break;
-
-    default:
-      return null;
-  }
-};
+import { observable, action } from "mobx";
 
 class FormSelectorService {
+  @observable
   formArray = [];
 
+  @action
   registerFormType = form => {
     if (form.key && form.displayName && form.mutation && form.jsx) {
       this.formArray.push(form);
     }
   };
 
+  @action
   registerformTypes = forms => {
     for (let i = 0; i < forms.length; i++) {
       const form = forms[i];
@@ -42,6 +37,6 @@ class FormSelectorService {
   };
 }
 
-export const objectiveFormService = new FormSelectorService();
-export const conditionFormService = new FormSelectorService();
-export const actionFormService = new FormSelectorService();
+export const objectiveFormState = new FormSelectorService();
+export const conditionFormState = new FormSelectorService();
+export const actionFormState = new FormSelectorService();

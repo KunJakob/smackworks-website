@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { LoginModal } from "./../organisms/landingpage/login-modal";
 import { Navbar } from "./../organisms/landingpage/coverpage-navbar";
-import { authState } from "./../state/auth";
+import { AuthState } from "./../state/auth";
 import { withRouter } from "react-router";
 import { observer } from "mobx-react";
 
@@ -20,7 +20,7 @@ class RawCoverPageTemplate extends Component {
     };
   }
   signInClick = () => {
-    if (authState.isAuthenticated) {
+    if (AuthState.isAuthenticated) {
       this.props.history.push("/panel");
       return;
     }

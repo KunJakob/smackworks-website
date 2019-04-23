@@ -1,5 +1,5 @@
 import { Layout } from "antd";
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Query } from "react-apollo";
 import styled from "styled-components";
 import { PanelSider } from "./../organisms/panel/sider";
@@ -7,11 +7,6 @@ import { PanelTopBar } from "./../organisms/panel/panel-topbar";
 import { USER_QUESTS_QUERY } from "../graphql/queriesandmutations";
 import Loading from "./loading";
 import { CreateConditionModal } from "../molecules/panel/forms/create-condition/create-condition-modal";
-import {
-  objectiveFormService,
-  conditionFormService,
-  actionFormService
-} from "../state/form-selector";
 import { CreateActionModal } from "../molecules/panel/forms/create-action/create-action-modal";
 import { CreateObjectiveModal } from "../molecules/panel/forms/create-objective/create-objective-modal";
 import { CreateQuestModal } from "../molecules/panel/forms/create-quest-modal";
@@ -110,7 +105,7 @@ export default class Panel extends Component {
   switchQuestHandler = e => {
     console.log(e);
     this.setState({
-      openQuest: parseInt(e.key),
+      openQuest: parseInt(e.key, 10),
       stageIndex: -1,
       actionIndex: -1,
       conditionIndex: -1
@@ -180,7 +175,7 @@ export default class Panel extends Component {
             return null;
           }
           return (
-            <>
+            <Fragment>
               <div>
                 <CreateQuestModal
                   visible={this.state.showCreateQuest}
@@ -193,7 +188,6 @@ export default class Panel extends Component {
                   stageIndex={this.state.stageIndex}
                   onOk={this.hideCreateObjective}
                   onCancel={this.hideCreateObjective}
-                  objectives={objectiveFormService.formArray}
                 />
                 <CreateConditionModal
                   visible={this.state.showCreateCondition}
@@ -202,7 +196,6 @@ export default class Panel extends Component {
                   objectiveIndex={this.state.objectiveIndex}
                   onOk={this.hideCreateCondition}
                   onCancel={this.hideCreateCondition}
-                  conditions={conditionFormService.formArray}
                 />
                 <CreateActionModal
                   visible={this.state.showCreateAction}
@@ -211,7 +204,6 @@ export default class Panel extends Component {
                   objectiveIndex={this.state.objectiveIndex}
                   onOk={this.hideCreateAction}
                   onCancel={this.hideCreateAction}
-                  actions={actionFormService.formArray}
                 />
               </div>
               <Layout>
@@ -269,7 +261,7 @@ export default class Panel extends Component {
                   </Footer>
                 </Layout>
               </Layout>
-            </>
+            </Fragment>
           );
         }}
       </Query>
