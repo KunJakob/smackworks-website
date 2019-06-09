@@ -6,6 +6,7 @@ import { USER_QUESTS_QUERY } from "../../../../graphql/queriesandmutations";
 import { ActionSelector } from "./action-selector";
 import { CreateActionForm } from "./create-action";
 import { observer } from "mobx-react";
+import { client } from "../../../..";
 
 const Step = Steps.Step;
 
@@ -107,6 +108,7 @@ class CreateActionModal extends Component {
                   user: user
                 }
               });
+              client.reFetchObservableQueries();
             }}
             mutation={this.state.selectedAction.mutation}
           >

@@ -5,6 +5,7 @@ import { Mutation } from "react-apollo";
 import { USER_QUESTS_QUERY } from "../../../../graphql/queriesandmutations";
 import { ConditionSelector } from "./condition-selector";
 import { CreateConditionForm } from "./create-condition";
+import { client } from "../../../..";
 
 const Step = Steps.Step;
 
@@ -105,6 +106,7 @@ export class CreateConditionModal extends Component {
                   user: user
                 }
               });
+              client.reFetchObservableQueries();
             }}
             mutation={this.state.selectedCondition.mutation}
           >

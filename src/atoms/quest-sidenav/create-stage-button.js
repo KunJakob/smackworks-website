@@ -7,6 +7,7 @@ import { Mutation } from "react-apollo";
 import { Menu } from "antd";
 import { Icon } from "antd";
 import PropTypes from "prop-types";
+import { client } from "../..";
 
 export class CreateStageButton extends Component {
   static propTypes = {
@@ -28,6 +29,7 @@ export class CreateStageButton extends Component {
               user: user
             }
           });
+          client.reFetchObservableQueries();
         }}
         mutation={CREATE_STAGE_MUTATION}
       >

@@ -60,7 +60,7 @@ export default class Panel extends Component {
   finishCreateQuest = () => {
     this.setState({
       showCreateQuest: false,
-      openQuest: this.props.data.user.quests.length - 1
+      openQuest: user.quests.length - 1
     });
   };
   createObjectiveClick = values => {

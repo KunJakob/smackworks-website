@@ -6,6 +6,7 @@ import { Mutation, withApollo } from "react-apollo";
 import { merge } from "lodash";
 import { conditionFormState } from "../../state/form-selector";
 import { observer } from "mobx-react";
+import { client } from "../..";
 
 @observer
 class RawEditor extends Component {
@@ -68,6 +69,7 @@ class RawEditor extends Component {
                   user: user
                 }
               });
+              client.reFetchObservableQueries();
             }}
             mutation={form.update}
           >

@@ -5,6 +5,7 @@ import { ObjectiveSelector } from "./objective-selector";
 import { CreateObjectiveForm } from "./create-objective";
 import { Mutation } from "react-apollo";
 import { USER_QUESTS_QUERY } from "../../../../graphql/queriesandmutations";
+import { client } from "../../../..";
 
 const Step = Steps.Step;
 
@@ -102,6 +103,7 @@ export class CreateObjectiveModal extends Component {
                   user: user
                 }
               });
+              client.reFetchObservableQueries();
             }}
             mutation={this.state.selectedObjective.mutation}
           >

@@ -4,6 +4,7 @@ import { Mutation } from "react-apollo";
 import { CreateQuestForm } from "./create-quest";
 import { CREATE_QUEST_MUTATION } from "../../../graphql/queriesandmutations";
 import { USER_QUESTS_QUERY } from "./../../../graphql/queriesandmutations";
+import { client } from "../../..";
 
 export class CreateQuestModal extends Component {
   render() {
@@ -22,9 +23,12 @@ export class CreateQuestModal extends Component {
       >
         <Mutation
           update={(cache, { data: { createQuest } }) => {
-            const { user } = cache.readQuery({ query: USER_QUESTS_QUERY });
+            const { user } = client.cache.readQuery({
+              query: USER_QUESTS_QUERY
+            });
             user.quests.push(createQuest);
-            cache.writeQuery({
+
+            client.cache.writeQuery({
               query: USER_QUESTS_QUERY,
               data: {
                 user: user
