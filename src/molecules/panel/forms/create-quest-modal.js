@@ -23,12 +23,12 @@ export class CreateQuestModal extends Component {
       >
         <Mutation
           update={(cache, { data: { createQuest } }) => {
-            const { user } = client.cache.readQuery({
+            const { user } = client.readQuery({
               query: USER_QUESTS_QUERY
             });
             user.quests.push(createQuest);
 
-            client.cache.writeQuery({
+            client.writeQuery({
               query: USER_QUESTS_QUERY,
               data: {
                 user: user

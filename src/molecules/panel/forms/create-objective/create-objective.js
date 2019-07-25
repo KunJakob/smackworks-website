@@ -101,7 +101,7 @@ const FormikCreateObjectiveForm = withFormik({
       setErrors(["Mission Failed. We'll get them next time boys"]);
     }
     bag.props.successCallback(values);
-    console.log(values);
+    console.log("Create Objective", values);
   }
 })(RawCreateObjectiveForm);
 

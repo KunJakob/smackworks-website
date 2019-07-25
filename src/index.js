@@ -10,7 +10,6 @@ import { HttpLink } from "apollo-link-http";
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
-import { endpoints } from "./config/endpoints";
 import introspectionQueryResultData from "./config/fragments.json";
 import { AuthState } from "./state/auth";
 import * as serviceWorker from "./serviceWorker";
@@ -29,6 +28,13 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
   introspectionQueryResultData
 });
 
+if (process.env.NODE_ENV === "development") {
+  window._env_ = {
+    API_URL: "https://api.smack.works/graphql",
+    AUTH_URL: "https://api.smack.works/"
+  };
+}
+
 const cache = new InMemoryCache({ fragmentMatcher });
 export const client = new ApolloClient({
   link: ApolloLink.from([
@@ -42,7 +48,7 @@ export const client = new ApolloClient({
       if (networkError) console.log(`[Network error]: ${networkError}`);
     }),
     new HttpLink({
-      uri: endpoints.api,
+      uri: window._env_.API_URL,
       headers: {
         accessToken: localStorage.getItem("accessToken")
       }
@@ -107,6 +113,7 @@ conditionFormState.registerformTypes(conditionForms);
 actionFormState.registerformTypes(actionForms);
 ReactDOM.render(<App />, document.getElementById("root"));
 AuthState.verify();
+
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA

@@ -80,7 +80,7 @@ export class CreateObjectiveModal extends Component {
         {this.state.step === 1 && (
           <Mutation
             update={(cache, { data }) => {
-              const { user } = cache.readQuery({ query: USER_QUESTS_QUERY });
+              const { user } = client.readQuery({ query: USER_QUESTS_QUERY });
               console.log("USER:", user);
               const createObjective = data[Object.keys(data)[0]];
               for (let i = 0; i < user.quests.length; i++) {
@@ -97,7 +97,7 @@ export class CreateObjectiveModal extends Component {
               console.log("createObjective:", createObjective);
               console.log("DATA:", data);
               console.log("MERGED:", user);
-              cache.writeQuery({
+              client.writeQuery({
                 query: USER_QUESTS_QUERY,
                 data: {
                   user: user

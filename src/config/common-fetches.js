@@ -1,7 +1,5 @@
-import { endpoints } from "./endpoints";
-
 export const login = async (email, password) => {
-  return fetch(endpoints.auth + "account/signin", {
+  return fetch(window._env_.AUTH_URL + "account/signin", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -19,7 +17,7 @@ export const login = async (email, password) => {
 };
 
 export const confirmEmail = async id => {
-  return fetch(endpoints.auth + "account/confirmemail", {
+  return fetch(window._env_.AUTH_URL + "account/confirmemail", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -40,7 +38,7 @@ export const confirmEmail = async id => {
 };
 
 export const signup = async (email, password) => {
-  return fetch(endpoints.auth + "account/signup", {
+  return fetch(window._env_.AUTH_URL + "account/signup", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -65,7 +63,7 @@ export const signup = async (email, password) => {
 };
 
 export const verify = async accessToken => {
-  return fetch(endpoints.auth + "account/verify", {
+  return fetch(window._env_.AUTH_URL + "account/verify", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -88,7 +86,7 @@ export const verify = async accessToken => {
 };
 
 export const requestAccessToken = async refreshToken => {
-  return fetch(endpoints.auth + "account/requestaccesstoken", {
+  return fetch(window._env_.AUTH_URL + "account/requestaccesstoken", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -105,7 +103,7 @@ export const requestAccessToken = async refreshToken => {
 };
 
 export const logout = async refreshToken => {
-  return fetch(endpoints.auth + "account/logout", {
+  return fetch(window._env_.AUTH_URL + "account/logout", {
     method: "POST",
     mode: "cors",
     headers: {

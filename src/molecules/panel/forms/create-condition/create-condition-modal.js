@@ -89,7 +89,7 @@ export class CreateConditionModal extends Component {
         {this.state.step === 1 && (
           <Mutation
             update={(cache, { data }) => {
-              const { user } = cache.readQuery({ query: USER_QUESTS_QUERY });
+              const { user } = client.readQuery({ query: USER_QUESTS_QUERY });
               const createCondition = data[Object.keys(data)[0]];
               for (let i = 0; i < user.quests.length; i++) {
                 const quest = user.quests[i];
@@ -100,7 +100,7 @@ export class CreateConditionModal extends Component {
                   ].conditions.push(createCondition);
                 }
               }
-              cache.writeQuery({
+              client.writeQuery({
                 query: USER_QUESTS_QUERY,
                 data: {
                   user: user

@@ -2,7 +2,8 @@ version: "2"
 services:
   website:
     build: .
-    image: registry.smack.works/smackworks/website
+    image: smackzter/smackworks-website
     restart: always
-    ports:
-      - 8080:80
+    environment:
+      API_URL: https://api.smack.works/graphql
+      AUTH_URL: https://api.smack.works/

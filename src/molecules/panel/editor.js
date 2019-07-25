@@ -37,7 +37,7 @@ class RawEditor extends Component {
       return <Fragment>Select a quest to begin</Fragment>;
     } else {
       if (hasCondition) {
-        const data = this.props.client.cache.readQuery({
+        const data = this.props.client.readQuery({
           query: USER_QUESTS_QUERY
         });
         const cachedCondition =
@@ -48,7 +48,7 @@ class RawEditor extends Component {
         return (
           <Mutation
             update={(cache, { data }) => {
-              const { user } = cache.readQuery({ query: USER_QUESTS_QUERY });
+              const { user } = client.readQuery({ query: USER_QUESTS_QUERY });
               console.log("USER:", user);
               const updateCondition = data[Object.keys(data)[0]];
               updateCondition.conditionIndex = undefined;
@@ -63,7 +63,7 @@ class RawEditor extends Component {
               ].conditions[conditionIndex] = newCon;
               console.log("DATA:", data);
               console.log("MERGED:", user);
-              cache.writeQuery({
+              client.writeQuery({
                 query: USER_QUESTS_QUERY,
                 data: {
                   user: user

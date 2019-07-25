@@ -19,11 +19,11 @@ export class CreateStageButton extends Component {
     return (
       <Mutation
         update={(cache, { data: { createStage } }) => {
-          const { user } = cache.readQuery({
+          const { user } = client.readQuery({
             query: USER_QUESTS_QUERY
           });
           user.quests[questIndex].stages.push(createStage);
-          cache.writeQuery({
+          client.writeQuery({
             query: USER_QUESTS_QUERY,
             data: {
               user: user
