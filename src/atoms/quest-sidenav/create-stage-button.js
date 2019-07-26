@@ -7,7 +7,6 @@ import { Mutation } from "react-apollo";
 import { Menu } from "antd";
 import { Icon } from "antd";
 import PropTypes from "prop-types";
-import { client } from "../..";
 
 export class CreateStageButton extends Component {
   static propTypes = {
@@ -18,7 +17,7 @@ export class CreateStageButton extends Component {
     const { questIndex, questID, ...props } = this.props;
     return (
       <Mutation
-        update={(cache, { data: { createStage } }) => {
+        update={(client, { data: { createStage } }) => {
           const { user } = client.readQuery({
             query: USER_QUESTS_QUERY
           });
@@ -29,7 +28,6 @@ export class CreateStageButton extends Component {
               user: user
             }
           });
-          client.reFetchObservableQueries();
         }}
         mutation={CREATE_STAGE_MUTATION}
       >

@@ -6,7 +6,6 @@ import { USER_QUESTS_QUERY } from "../../../../graphql/queriesandmutations";
 import { ActionSelector } from "./action-selector";
 import { CreateActionForm } from "./create-action";
 import { observer } from "mobx-react";
-import { client } from "../../../..";
 
 const Step = Steps.Step;
 
@@ -90,7 +89,7 @@ class CreateActionModal extends Component {
         )}
         {this.state.step === 1 && (
           <Mutation
-            update={(cache, { data }) => {
+            update={(client, { data }) => {
               const { user } = client.readQuery({ query: USER_QUESTS_QUERY });
               const createAction = data[Object.keys(data)[0]];
               for (let i = 0; i < user.quests.length; i++) {

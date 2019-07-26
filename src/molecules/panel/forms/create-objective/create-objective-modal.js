@@ -5,7 +5,6 @@ import { ObjectiveSelector } from "./objective-selector";
 import { CreateObjectiveForm } from "./create-objective";
 import { Mutation } from "react-apollo";
 import { USER_QUESTS_QUERY } from "../../../../graphql/queriesandmutations";
-import { client } from "../../../..";
 
 const Step = Steps.Step;
 
@@ -79,7 +78,7 @@ export class CreateObjectiveModal extends Component {
         )}
         {this.state.step === 1 && (
           <Mutation
-            update={(cache, { data }) => {
+            update={(client, { data }) => {
               const { user } = client.readQuery({ query: USER_QUESTS_QUERY });
               console.log("USER:", user);
               const createObjective = data[Object.keys(data)[0]];
@@ -103,7 +102,6 @@ export class CreateObjectiveModal extends Component {
                   user: user
                 }
               });
-              client.reFetchObservableQueries();
             }}
             mutation={this.state.selectedObjective.mutation}
           >
@@ -117,6 +115,7 @@ export class CreateObjectiveModal extends Component {
                   }
                   variables.questID = questID;
                   variables.stageIndex = stageIndex;
+                  console.log("function", createObjective);
                   console.log("vars", variables);
                   createObjective({
                     variables

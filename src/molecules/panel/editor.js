@@ -6,7 +6,6 @@ import { Mutation, withApollo } from "react-apollo";
 import { merge } from "lodash";
 import { conditionFormState } from "../../state/form-selector";
 import { observer } from "mobx-react";
-import { client } from "../..";
 
 @observer
 class RawEditor extends Component {
@@ -47,7 +46,7 @@ class RawEditor extends Component {
         const form = conditionFormState.getForm(cachedCondition.__typename);
         return (
           <Mutation
-            update={(cache, { data }) => {
+            update={(client, { data }) => {
               const { user } = client.readQuery({ query: USER_QUESTS_QUERY });
               console.log("USER:", user);
               const updateCondition = data[Object.keys(data)[0]];

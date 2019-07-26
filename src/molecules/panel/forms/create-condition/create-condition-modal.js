@@ -5,7 +5,6 @@ import { Mutation } from "react-apollo";
 import { USER_QUESTS_QUERY } from "../../../../graphql/queriesandmutations";
 import { ConditionSelector } from "./condition-selector";
 import { CreateConditionForm } from "./create-condition";
-import { client } from "../../../..";
 
 const Step = Steps.Step;
 
@@ -88,7 +87,7 @@ export class CreateConditionModal extends Component {
         )}
         {this.state.step === 1 && (
           <Mutation
-            update={(cache, { data }) => {
+            update={(client, { data }) => {
               const { user } = client.readQuery({ query: USER_QUESTS_QUERY });
               const createCondition = data[Object.keys(data)[0]];
               for (let i = 0; i < user.quests.length; i++) {

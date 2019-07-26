@@ -1,6 +1,5 @@
 import { ObjectiveFragments } from "../../graphql/fragments/objective-fragments";
 import gql from "graphql-tag";
-import { Input, Form } from "antd";
 import React from "react";
 import { QuestFormField } from "../../state/quest-form-field-container";
 
@@ -10,17 +9,7 @@ objectiveForms.push(
   new QuestFormField(
     "DIE",
     "Die",
-    props => (
-      <Form.Item>
-        <Input
-          name="genericType"
-          placeholder="TheSickestGenericType"
-          autoComplete="off"
-          onChange={props.handleChange}
-          value={props.values.genericType}
-        />
-      </Form.Item>
-    ),
+    props => <div />,
     gql`
       mutation CreateGenericObjective(
         $questID: ID!
