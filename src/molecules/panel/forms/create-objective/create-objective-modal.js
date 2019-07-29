@@ -104,6 +104,7 @@ export class CreateObjectiveModal extends Component {
               });
             }}
             mutation={this.state.selectedObjective.mutation}
+            refetchQueries={() => [{ query: USER_QUESTS_QUERY }]}
           >
             {(createObjective, { data }) => (
               <CreateObjectiveForm

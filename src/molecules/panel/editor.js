@@ -68,9 +68,9 @@ class RawEditor extends Component {
                   user: user
                 }
               });
-              client.reFetchObservableQueries();
             }}
             mutation={form.update}
+            refetchQueries={() => [{ query: USER_QUESTS_QUERY }]}
           >
             {updateCondition => (
               <UpdateConditionForm

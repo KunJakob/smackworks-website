@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import React from "react";
 import { QuestFormField } from "../../state/quest-form-field-container";
 
-const objectiveForms = [];
+export const objectiveForms = [];
 
 objectiveForms.push(
   new QuestFormField(
@@ -74,5 +74,3 @@ objectiveForms.push(
     `
   )
 );
-
-export default objectiveForms;

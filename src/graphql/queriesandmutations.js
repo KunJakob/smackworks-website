@@ -14,6 +14,9 @@ export const USER_QUESTS_QUERY = gql`
             ...FullMemberObjectiveData
             actions {
               __typename
+              ... on ExecuteCommand {
+                command
+              }
             }
             conditions {
               __typename
@@ -53,17 +56,6 @@ export const CREATE_QUEST_MUTATION = gql`
   }
   ${QuestFragments.FULL_MEMBER_QUEST_DATA}
   ${ObjectiveFragments.FULL_MEMBER_OBJECTIVE_DATA}
-`;
-
-export const GET_CONDITION = gql`
-  query GetCondition(
-    $questID: ID!
-    $stageIndex: Int!
-    $objectiveIndex: Int!
-    $conditionIndex: Int!
-  ) {
-    __typename
-  }
 `;
 
 export const CREATE_STAGE_MUTATION = gql`

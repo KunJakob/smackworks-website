@@ -5,10 +5,12 @@ import { Mutation } from "react-apollo";
 import { USER_QUESTS_QUERY } from "../../../../graphql/queriesandmutations";
 import { ConditionSelector } from "./condition-selector";
 import { CreateConditionForm } from "./create-condition";
+import { observer } from "mobx-react";
 
 const Step = Steps.Step;
 
-export class CreateConditionModal extends Component {
+@observer
+class CreateConditionModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -99,17 +101,29 @@ export class CreateConditionModal extends Component {
                   ].conditions.push(createCondition);
                 }
               }
+              console.log(
+                "cache pre-write",
+                client.readQuery({
+                  query: USER_QUESTS_QUERY
+                })
+              );
               client.writeQuery({
                 query: USER_QUESTS_QUERY,
                 data: {
                   user: user
                 }
               });
-              client.reFetchObservableQueries();
+              console.log(
+                "cache post-write",
+                client.readQuery({
+                  query: USER_QUESTS_QUERY
+                })
+              );
             }}
             mutation={this.state.selectedCondition.mutation}
+            refetchQueries={() => [{ query: USER_QUESTS_QUERY }]}
           >
-            {(createCondition, { data }) => (
+            {createCondition => (
               <CreateConditionForm
                 extraFormFields={this.state.selectedCondition.jsx}
                 successCallback={values => {
@@ -120,9 +134,10 @@ export class CreateConditionModal extends Component {
                   variables.questID = questID;
                   variables.stageIndex = stageIndex;
                   variables.objectiveIndex = objectiveIndex;
+                  console.log("vars", variables);
                   createCondition({
                     variables
-                  }).then(res => {
+                  }).then(() => {
                     onOk();
                   });
                 }}
@@ -134,3 +149,5 @@ export class CreateConditionModal extends Component {
     );
   }
 }
+
+export { CreateConditionModal };

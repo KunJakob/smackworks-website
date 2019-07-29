@@ -17,12 +17,13 @@ export class CreateStageButton extends Component {
     const { questIndex, questID, ...props } = this.props;
     return (
       <Mutation
-        update={(client, { data: { createStage } }) => {
-          const { user } = client.readQuery({
+        update={(cache, { data: { createStage } }) => {
+          const { user } = cache.readQuery({
             query: USER_QUESTS_QUERY
           });
           user.quests[questIndex].stages.push(createStage);
-          client.writeQuery({
+
+          cache.writeQuery({
             query: USER_QUESTS_QUERY,
             data: {
               user: user
@@ -30,6 +31,7 @@ export class CreateStageButton extends Component {
           });
         }}
         mutation={CREATE_STAGE_MUTATION}
+        refetchQueries={() => [{ query: USER_QUESTS_QUERY }]}
       >
         {(createStage, { data }) => (
           <Menu.Item

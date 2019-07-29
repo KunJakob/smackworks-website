@@ -36,6 +36,7 @@ export class CreateQuestModal extends Component {
             });
           }}
           mutation={CREATE_QUEST_MUTATION}
+          refetchQueries={() => [{ query: USER_QUESTS_QUERY }]}
         >
           {(createQuest, { data }) => (
             <CreateQuestForm

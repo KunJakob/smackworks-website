@@ -101,15 +101,27 @@ class CreateActionModal extends Component {
                   ].actions.push(createAction);
                 }
               }
+              console.log(
+                "cache pre-write",
+                client.readQuery({
+                  query: USER_QUESTS_QUERY
+                })
+              );
               client.writeQuery({
                 query: USER_QUESTS_QUERY,
                 data: {
                   user: user
                 }
               });
-              client.reFetchObservableQueries();
+              console.log(
+                "cache post-write",
+                client.readQuery({
+                  query: USER_QUESTS_QUERY
+                })
+              );
             }}
             mutation={this.state.selectedAction.mutation}
+            refetchQueries={() => [{ query: USER_QUESTS_QUERY }]}
           >
             {createAction => (
               <CreateActionForm

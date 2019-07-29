@@ -167,12 +167,12 @@ export default class Panel extends Component {
 
   render() {
     return (
-      <Query query={USER_QUESTS_QUERY}>
+      <Query query={USER_QUESTS_QUERY} fetchPolicy="cache-and-network">
         {({ loading, error, data }) => {
           if (loading) return <Loading />;
           if (error) {
             console.log(error.message);
-            return null;
+            return <div>Failed to fetch quest-list</div>;
           }
           return (
             <Fragment>

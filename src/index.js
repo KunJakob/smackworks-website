@@ -1,28 +1,29 @@
-import { Form, Input, Tooltip } from "antd";
 import {
   InMemoryCache,
   IntrospectionFragmentMatcher
 } from "apollo-cache-inmemory";
+import gql from "graphql-tag";
+import React, { Fragment } from "react";
+import { Form, Dropdown, Menu, Button, Icon, Input, Tooltip } from "antd";
 import ApolloClient from "apollo-client";
 import { ApolloLink } from "apollo-link";
 import { onError } from "apollo-link-error";
 import { HttpLink } from "apollo-link-http";
-import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 import introspectionQueryResultData from "./config/fragments.json";
 import { AuthState } from "./state/auth";
 import * as serviceWorker from "./serviceWorker";
 import { ActionFragments } from "./graphql/fragments/action-fragments";
-import objectiveForms from "./config/form-definitions/objective-forms";
-import conditionForms from "./config/form-definitions/condition-forms";
-import { actionForms } from "./config/form-definitions/action-forms";
-import gql from "graphql-tag";
+import { objectiveForms } from "./config/form-definitions/objective-forms";
+//import conditionForms from "./config/form-definitions/condition-forms";
+//import { actionForms } from "./config/form-definitions/action-forms";
 import {
   actionFormState,
   objectiveFormState,
   conditionFormState
 } from "./state/form-selector";
+import { ConditionFragments } from "./graphql/fragments/condition-fragments";
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
   introspectionQueryResultData
@@ -57,60 +58,104 @@ export const client = new ApolloClient({
   cache: cache
 });
 
-actionFormState.registerFormType({
-  key: "ExecuteCommand",
-  displayName: "Execute Command",
+conditionFormState.registerFormType({
+  key: "AtTime",
+  displayName: "At Time",
+  jsx: props => (
+    <Fragment>
+      <Form.Item>
+        <Dropdown
+          overlay={
+            <Menu
+              onClick={({ key }) => {
+                props.setFieldValue("time", key);
+              }}
+            >
+              <Menu.Item key="DAWN">DAWN</Menu.Item>
+              <Menu.Item key="MORNING">MORNING</Menu.Item>
+              <Menu.Item key="DAY">DAY</Menu.Item>
+              <Menu.Item key="MIDDAY">MIDDAY</Menu.Item>
+              <Menu.Item key="AFTERNOON">AFTERNOON</Menu.Item>
+              <Menu.Item key="DUSK">DUSK</Menu.Item>
+              <Menu.Item key="NIGHT">NIGHT</Menu.Item>
+              <Menu.Item key="MIDNIGHT">MIDNIGHT</Menu.Item>
+            </Menu>
+          }
+        >
+          <Button style={{ minWidth: "130px" }}>
+            <div style={{ float: "left" }}>
+              {props.values.time || "Select a Time"}
+            </div>
+            <div style={{ float: "right" }}>
+              <Icon type="down" />
+            </div>
+          </Button>
+        </Dropdown>
+      </Form.Item>
+    </Fragment>
+  ),
   mutation: gql`
-    mutation CreateExecuteCommandAction(
+    mutation createAtTimeCondition(
       $questID: ID!
       $stageIndex: Int!
       $objectiveIndex: Int!
-      $delay: Float!
-      $command: String!
+      $inverted: Boolean!
+      $time: Time!
     ) {
-      createExecuteCommandAction(
+      createAtTimeCondition(
         params: {
           location: {
             questID: $questID
             stageIndex: $stageIndex
             objectiveIndex: $objectiveIndex
           }
-          delay: $delay
-          command: $command
+          inverted: $inverted
+          time: $time
         }
       ) {
-        ...FullMemberActionData
-        ... on ExecuteCommand {
-          command
+        __typename
+        ...FullMemberConditionData
+        ... on AtTime {
+          time
         }
       }
     }
-    ${ActionFragments.FULL_MEMBER_ACTION_DATA}
+    ${ConditionFragments.FULL_MEMBER_CONDITION_DATA}
   `,
-  jsx: props => (
-    <Fragment>
-      <Form.Item>
-        <div>
-          <Tooltip title="%p is the placeholder for playername">
-            <span>Execute Command</span>
-          </Tooltip>
-        </div>
-
-        <Input
-          name="command"
-          onChange={props.handleChange}
-          autoComplete="off"
-          placeholder="pokegive %p Charmander"
-          value={props.values.command}
-        />
-      </Form.Item>
-    </Fragment>
-  )
+  update: gql`
+    mutation updateAtTimeCondition(
+      $questID: ID!
+      $stageIndex: Int!
+      $objectiveIndex: Int!
+      $conditionIndex: Int!
+      $inverted: Boolean!
+      $time: Time!
+    ) {
+      updateAtTimeCondition(
+        params: {
+          location: {
+            questID: $questID
+            stageIndex: $stageIndex
+            objectiveIndex: $objectiveIndex
+            conditionIndex: $conditionIndex
+          }
+          inverted: $inverted
+          time: $time
+        }
+      ) {
+        ...FullMemberConditionData
+        ... on AtTime {
+          time
+        }
+      }
+    }
+    ${ConditionFragments.FULL_MEMBER_CONDITION_DATA}
+  `
 });
 
 objectiveFormState.registerformTypes(objectiveForms);
-conditionFormState.registerformTypes(conditionForms);
-actionFormState.registerformTypes(actionForms);
+//conditionFormState.registerformTypes(conditionForms);
+//actionFormState.registerformTypes(actionForms);
 ReactDOM.render(<App />, document.getElementById("root"));
 AuthState.verify();
 
