@@ -35,7 +35,7 @@ export class PanelSider extends Component {
       switchConditionHandler
     } = this.props;
     return (
-      <>
+      <React.Fragment>
         <div
           style={{
             borderBottomStyle: "solid",
@@ -68,7 +68,7 @@ export class PanelSider extends Component {
             />
           )}
         </div>
-      </>
+      </React.Fragment>
     );
   }
 }

@@ -10,7 +10,7 @@ conditionForms.push(
     "AtTime",
     "At Time",
     props => (
-      <>
+      <React.Fragment>
         <Form.Item>
           <Dropdown
             overlay={
@@ -40,7 +40,7 @@ conditionForms.push(
             </Button>
           </Dropdown>
         </Form.Item>
-      </>
+      </React.Fragment>
     ),
     gql`
       mutation createAtTimeCondition(

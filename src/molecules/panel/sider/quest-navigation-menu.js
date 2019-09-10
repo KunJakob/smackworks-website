@@ -41,7 +41,7 @@ export class QuestNavigationMenu extends Component {
       switchConditionHandler
     } = this.props;
     return (
-      <>
+      <React.Fragment>
         <Scrollbars
           style={{
             height: "80vh",
@@ -185,7 +185,7 @@ export class QuestNavigationMenu extends Component {
             <CreateStageButton questID={quest.id} questIndex={questIndex} />
           </Menu>
         </Scrollbars>
-      </>
+      </React.Fragment>
     );
   }
 }

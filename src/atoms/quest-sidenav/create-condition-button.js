@@ -20,7 +20,7 @@ export class CreateConditionButton extends Component {
       ...props
     } = this.props;
     return (
-      <>
+      <React.Fragment>
         <Menu.Item
           key={questID + stageIndex + objectiveIndex + "createCondition"}
           {...props}
@@ -35,7 +35,7 @@ export class CreateConditionButton extends Component {
           <Icon type="plus" />
           Create Condition
         </Menu.Item>
-      </>
+      </React.Fragment>
     );
   }
 }

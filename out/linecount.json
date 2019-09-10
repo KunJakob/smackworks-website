@@ -1,0 +1,665 @@
+{
+    "extension": "linecount",
+    "version": "0.1.7",
+    "workspace": "d:\\WebWorkspace\\minerquests.com",
+    "linecount": [
+        {
+            "version": "0.1.7",
+            "counttime": "2019-08-31 20:40:05",
+            "filesum": 106,
+            "codesum": 23430,
+            "commentsum": 156,
+            "blanksum": 4491,
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": ".cache\\325c8f456729b912b0d2134054eb7448-dfeeb2271cc2857eb0a45a5003c8bbee"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": ".eslintrc"
+                },
+                {
+                    "blank": 5,
+                    "code": 18,
+                    "comment": 1,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 2,
+                    "filename": ".gqlconfig"
+                },
+                {
+                    "blank": 5,
+                    "code": 28,
+                    "comment": 2,
+                    "filename": ".travis.yml"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "build\\asset-manifest.json"
+                },
+                {
+                    "filename": "build\\charizard.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build\\charizard64_64.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build\\favicon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\index.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "build\\manifest.json"
+                },
+                {
+                    "filename": "build\\screenshots\\1.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build\\screenshots\\2.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build\\screenshots\\3.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\service-worker.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 2,
+                    "filename": "build\\static\\css\\main.513b2760.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\css\\main.513b2760.css.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\js\\0.0a9a3401.chunk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\0.0a9a3401.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 2,
+                    "filename": "build\\static\\js\\1.0be387e5.chunk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\1.0be387e5.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "build\\static\\js\\2.c4fe458f.chunk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\2.c4fe458f.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 2,
+                    "filename": "build\\static\\js\\main.1f71515a.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build\\static\\js\\main.1f71515a.js.map"
+                },
+                {
+                    "blank": 1,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "config-overrides.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "env-config.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 59,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "filename": "public\\charizard.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\charizard64_64.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\favicon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 18,
+                    "comment": 23,
+                    "filename": "public\\index.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "public\\manifest.json"
+                },
+                {
+                    "filename": "public\\screenshots\\1.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\screenshots\\2.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\screenshots\\3.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 19,
+                    "code": 25,
+                    "comment": 6,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 6,
+                    "code": 95,
+                    "comment": 0,
+                    "filename": "src\\App.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "src\\atoms\\feature-header.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src\\atoms\\feature-icon.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\atoms\\feature-text.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "src\\atoms\\quest-sidenav\\create-action-button.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "src\\atoms\\quest-sidenav\\create-condition-button.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "src\\atoms\\quest-sidenav\\create-objective-button.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 52,
+                    "comment": 0,
+                    "filename": "src\\atoms\\quest-sidenav\\create-stage-button.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "src\\atoms\\quest-sidenav\\quest-list.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 122,
+                    "comment": 0,
+                    "filename": "src\\config\\common-fetches.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src\\config\\endpoints.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\config\\form-definitions\\action-forms.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 102,
+                    "comment": 0,
+                    "filename": "src\\config\\form-definitions\\condition-forms.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 86,
+                    "comment": 0,
+                    "filename": "src\\config\\form-definitions\\objective-forms.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 53,
+                    "comment": 0,
+                    "filename": "src\\config\\fragments.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\contexts\\form-contexts.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\graphql\\fragments\\action-fragments.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\graphql\\fragments\\condition-fragments.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 49,
+                    "comment": 3,
+                    "filename": "src\\graphql\\fragments\\objective-fragments.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src\\graphql\\fragments\\quest-fragments.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\graphql\\fragments\\user-fragments.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 4,
+                    "comment": 29,
+                    "filename": "src\\graphql\\objectivemutations.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 156,
+                    "comment": 0,
+                    "filename": "src\\graphql\\queries.graphql"
+                },
+                {
+                    "blank": 4,
+                    "code": 74,
+                    "comment": 0,
+                    "filename": "src\\graphql\\queriesandmutations.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 106,
+                    "comment": 3,
+                    "filename": "src\\index.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "src\\molecules\\feature.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "src\\molecules\\navbar\\login-buttons.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 97,
+                    "comment": 1,
+                    "filename": "src\\molecules\\panel\\editor.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 61,
+                    "comment": 0,
+                    "filename": "src\\molecules\\panel\\forms\\create-action\\action-selector.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 133,
+                    "comment": 0,
+                    "filename": "src\\molecules\\panel\\forms\\create-action\\create-action-modal.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 79,
+                    "comment": 1,
+                    "filename": "src\\molecules\\panel\\forms\\create-action\\create-action.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 61,
+                    "comment": 0,
+                    "filename": "src\\molecules\\panel\\forms\\create-condition\\condition-selector.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 132,
+                    "comment": 0,
+                    "filename": "src\\molecules\\panel\\forms\\create-condition\\create-condition-modal.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 76,
+                    "comment": 1,
+                    "filename": "src\\molecules\\panel\\forms\\create-condition\\create-condition.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 134,
+                    "comment": 0,
+                    "filename": "src\\molecules\\panel\\forms\\create-objective\\create-objective-modal.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 102,
+                    "comment": 1,
+                    "filename": "src\\molecules\\panel\\forms\\create-objective\\create-objective.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 61,
+                    "comment": 0,
+                    "filename": "src\\molecules\\panel\\forms\\create-objective\\objective-selector.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "src\\molecules\\panel\\forms\\create-quest-modal.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 79,
+                    "comment": 1,
+                    "filename": "src\\molecules\\panel\\forms\\create-quest.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 29,
+                    "comment": 1,
+                    "filename": "src\\molecules\\panel\\forms\\update-forms\\auto-save.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 66,
+                    "comment": 0,
+                    "filename": "src\\molecules\\panel\\forms\\update-forms\\update-condition.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\molecules\\panel\\forms\\update-forms\\update-quest.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "src\\molecules\\panel\\forms\\with-auto-save.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 186,
+                    "comment": 2,
+                    "filename": "src\\molecules\\panel\\sider\\quest-navigation-menu.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 69,
+                    "comment": 0,
+                    "filename": "src\\molecules\\panel\\sider\\quest-selector.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 55,
+                    "comment": 0,
+                    "filename": "src\\organisms\\landingpage\\coverpage-navbar.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 47,
+                    "comment": 1,
+                    "filename": "src\\organisms\\landingpage\\forgot-password-form.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 86,
+                    "comment": 0,
+                    "filename": "src\\organisms\\landingpage\\login-form.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "src\\organisms\\landingpage\\login-modal.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 101,
+                    "comment": 5,
+                    "filename": "src\\organisms\\landingpage\\signup-form.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 53,
+                    "comment": 12,
+                    "filename": "src\\organisms\\panel\\panel-topbar.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 71,
+                    "comment": 0,
+                    "filename": "src\\organisms\\panel\\sider.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "src\\organisms\\segments\\banner.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "src\\organisms\\segments\\explanation.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 34,
+                    "comment": 5,
+                    "filename": "src\\organisms\\segments\\screenshots.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\organisms\\segments\\segment-container.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 56,
+                    "comment": 0,
+                    "filename": "src\\organisms\\segments\\why-smackworks.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "src\\pages\\landingpage.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "src\\pages\\loading.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 266,
+                    "comment": 8,
+                    "filename": "src\\pages\\panel.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src\\pages\\settings.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "src\\pages\\signup.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 60,
+                    "comment": 0,
+                    "filename": "src\\services\\authservice.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 41,
+                    "comment": 0,
+                    "filename": "src\\services\\form-selector.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 8,
+                    "filename": "src\\services\\quest-form-field-container.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 89,
+                    "comment": 31,
+                    "filename": "src\\serviceWorker.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 71,
+                    "comment": 0,
+                    "filename": "src\\template\\coverpage-template.js"
+                },
+                {
+                    "blank": 2266,
+                    "code": 9970,
+                    "comment": 1,
+                    "filename": "yarn-error.log"
+                },
+                {
+                    "blank": 1990,
+                    "code": 9287,
+                    "comment": 0,
+                    "filename": "yarn.lock"
+                }
+            ]
+        }
+    ]
+}

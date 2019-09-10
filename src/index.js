@@ -82,7 +82,7 @@ actionFormService.registerFormType({
     ${ActionFragments.FULL_MEMBER_ACTION_DATA}
   `,
   jsx: props => (
-    <>
+    <React.Fragment>
       <Form.Item>
         <div>
           <Tooltip title="%p is the placeholder for playername">
@@ -98,7 +98,7 @@ actionFormService.registerFormType({
           value={props.values.command}
         />
       </Form.Item>
-    </>
+    </React.Fragment>
   )
 });
 

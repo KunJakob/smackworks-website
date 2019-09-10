@@ -33,7 +33,7 @@ export class QuestSelector extends Component {
       createQuestClick
     } = this.props;
     return (
-      <>
+      <React.Fragment>
         <Dropdown
           trigger={["click"]}
           placement="bottomRight"
@@ -66,7 +66,7 @@ export class QuestSelector extends Component {
             </div>
           </Button>
         </Dropdown>
-      </>
+      </React.Fragment>
     );
   }
 }

@@ -25,7 +25,7 @@ export class ConditionSelector extends Component {
 
   render() {
     return (
-      <>
+      <React.Fragment>
         <Dropdown
           trigger={["click"]}
           placement="bottomRight"
@@ -57,7 +57,7 @@ export class ConditionSelector extends Component {
             </div>
           </Button>
         </Dropdown>
-      </>
+      </React.Fragment>
     );
   }
 }

@@ -25,7 +25,7 @@ export class ActionSelector extends Component {
 
   render() {
     return (
-      <>
+      <React.Fragment>
         <Dropdown
           trigger={["click"]}
           placement="bottomRight"
@@ -57,7 +57,7 @@ export class ActionSelector extends Component {
             </div>
           </Button>
         </Dropdown>
-      </>
+      </React.Fragment>
     );
   }
 }

@@ -1,0 +1,118 @@
+===============================================================================
+EXTENSION NAME : linecount
+EXTENSION VERSION : 0.1.7
+-------------------------------------------------------------------------------
+count time : 2019-08-31 20:40:05
+count workspace : d:\WebWorkspace\minerquests.com
+total files : 106
+total code lines : 23430
+total comment lines : 156
+total blank lines : 4491
+
+.cache\325c8f456729b912b0d2134054eb7448-dfeeb2271cc2857eb0a45a5003c8bbee, code is 1, comment is 0, blank is 0.
+.eslintrc, code is 3, comment is 0, blank is 0.
+.gitignore, code is 18, comment is 1, blank is 5.
+.gqlconfig, code is 17, comment is 2, blank is 0.
+.travis.yml, code is 28, comment is 2, blank is 5.
+build\asset-manifest.json, code is 12, comment is 0, blank is 0.
+build\charizard.png, it is a binary file.
+build\charizard64_64.png, it is a binary file.
+build\favicon.ico, it is a binary file.
+build\index.html, code is 1, comment is 0, blank is 0.
+build\manifest.json, code is 15, comment is 0, blank is 0.
+build\screenshots\1.jpg, it is a binary file.
+build\screenshots\2.jpg, it is a binary file.
+build\screenshots\3.jpg, it is a binary file.
+build\service-worker.js, code is 1, comment is 0, blank is 0.
+build\static\css\main.513b2760.css, code is 1, comment is 2, blank is 0.
+build\static\css\main.513b2760.css.map, code is 1, comment is 0, blank is 0.
+build\static\js\0.0a9a3401.chunk.js, code is 1, comment is 1, blank is 0.
+build\static\js\0.0a9a3401.chunk.js.map, code is 1, comment is 0, blank is 0.
+build\static\js\1.0be387e5.chunk.js, code is 1, comment is 2, blank is 0.
+build\static\js\1.0be387e5.chunk.js.map, code is 1, comment is 0, blank is 0.
+build\static\js\2.c4fe458f.chunk.js, code is 1, comment is 1, blank is 0.
+build\static\js\2.c4fe458f.chunk.js.map, code is 1, comment is 0, blank is 0.
+build\static\js\main.1f71515a.js, code is 1, comment is 2, blank is 0.
+build\static\js\main.1f71515a.js.map, code is 1, comment is 0, blank is 0.
+config-overrides.js, code is 28, comment is 0, blank is 1.
+env-config.js, code is 4, comment is 0, blank is 0.
+package.json, code is 59, comment is 0, blank is 1.
+public\charizard.png, it is a binary file.
+public\charizard64_64.png, it is a binary file.
+public\favicon.ico, it is a binary file.
+public\index.html, code is 18, comment is 23, blank is 0.
+public\manifest.json, code is 15, comment is 0, blank is 0.
+public\screenshots\1.jpg, it is a binary file.
+public\screenshots\2.jpg, it is a binary file.
+public\screenshots\3.jpg, it is a binary file.
+README.md, code is 25, comment is 6, blank is 19.
+src\App.js, code is 95, comment is 0, blank is 6.
+src\atoms\feature-header.js, code is 21, comment is 0, blank is 3.
+src\atoms\feature-icon.js, code is 16, comment is 0, blank is 2.
+src\atoms\feature-text.js, code is 15, comment is 0, blank is 2.
+src\atoms\quest-sidenav\create-action-button.js, code is 39, comment is 0, blank is 2.
+src\atoms\quest-sidenav\create-condition-button.js, code is 39, comment is 0, blank is 2.
+src\atoms\quest-sidenav\create-objective-button.js, code is 31, comment is 0, blank is 2.
+src\atoms\quest-sidenav\create-stage-button.js, code is 52, comment is 0, blank is 1.
+src\atoms\quest-sidenav\quest-list.js, code is 30, comment is 0, blank is 1.
+src\config\common-fetches.js, code is 122, comment is 0, blank is 6.
+src\config\endpoints.js, code is 4, comment is 0, blank is 0.
+src\config\form-definitions\action-forms.js, code is 1, comment is 0, blank is 0.
+src\config\form-definitions\condition-forms.js, code is 102, comment is 0, blank is 2.
+src\config\form-definitions\objective-forms.js, code is 86, comment is 0, blank is 3.
+src\config\fragments.json, code is 53, comment is 0, blank is 0.
+src\contexts\form-contexts.js, code is 9, comment is 0, blank is 1.
+src\graphql\fragments\action-fragments.js, code is 8, comment is 0, blank is 1.
+src\graphql\fragments\condition-fragments.js, code is 8, comment is 0, blank is 1.
+src\graphql\fragments\objective-fragments.js, code is 49, comment is 3, blank is 2.
+src\graphql\fragments\quest-fragments.js, code is 10, comment is 0, blank is 1.
+src\graphql\fragments\user-fragments.js, code is 13, comment is 0, blank is 1.
+src\graphql\objectivemutations.js, code is 4, comment is 29, blank is 1.
+src\graphql\queries.graphql, code is 156, comment is 0, blank is 0.
+src\graphql\queriesandmutations.js, code is 74, comment is 0, blank is 4.
+src\index.js, code is 106, comment is 3, blank is 5.
+src\molecules\feature.js, code is 29, comment is 0, blank is 4.
+src\molecules\navbar\login-buttons.js, code is 19, comment is 0, blank is 1.
+src\molecules\panel\editor.js, code is 97, comment is 1, blank is 4.
+src\molecules\panel\forms\create-action\action-selector.js, code is 61, comment is 0, blank is 2.
+src\molecules\panel\forms\create-action\create-action-modal.js, code is 133, comment is 0, blank is 6.
+src\molecules\panel\forms\create-action\create-action.js, code is 79, comment is 1, blank is 4.
+src\molecules\panel\forms\create-condition\condition-selector.js, code is 61, comment is 0, blank is 2.
+src\molecules\panel\forms\create-condition\create-condition-modal.js, code is 132, comment is 0, blank is 6.
+src\molecules\panel\forms\create-condition\create-condition.js, code is 76, comment is 1, blank is 4.
+src\molecules\panel\forms\create-objective\create-objective-modal.js, code is 134, comment is 0, blank is 7.
+src\molecules\panel\forms\create-objective\create-objective.js, code is 102, comment is 1, blank is 5.
+src\molecules\panel\forms\create-objective\objective-selector.js, code is 61, comment is 0, blank is 2.
+src\molecules\panel\forms\create-quest-modal.js, code is 54, comment is 0, blank is 1.
+src\molecules\panel\forms\create-quest.js, code is 79, comment is 1, blank is 4.
+src\molecules\panel\forms\update-forms\auto-save.js, code is 29, comment is 1, blank is 5.
+src\molecules\panel\forms\update-forms\update-condition.js, code is 66, comment is 0, blank is 4.
+src\molecules\panel\forms\update-forms\update-quest.js, code is 0, comment is 0, blank is 0.
+src\molecules\panel\forms\with-auto-save.js, code is 34, comment is 0, blank is 4.
+src\molecules\panel\sider\quest-navigation-menu.js, code is 186, comment is 2, blank is 3.
+src\molecules\panel\sider\quest-selector.js, code is 69, comment is 0, blank is 3.
+src\organisms\landingpage\coverpage-navbar.js, code is 55, comment is 0, blank is 2.
+src\organisms\landingpage\forgot-password-form.js, code is 47, comment is 1, blank is 3.
+src\organisms\landingpage\login-form.js, code is 86, comment is 0, blank is 5.
+src\organisms\landingpage\login-modal.js, code is 23, comment is 0, blank is 1.
+src\organisms\landingpage\signup-form.js, code is 101, comment is 5, blank is 4.
+src\organisms\panel\panel-topbar.js, code is 53, comment is 12, blank is 10.
+src\organisms\panel\sider.js, code is 71, comment is 0, blank is 3.
+src\organisms\segments\banner.js, code is 62, comment is 0, blank is 5.
+src\organisms\segments\explanation.js, code is 34, comment is 0, blank is 2.
+src\organisms\segments\screenshots.js, code is 34, comment is 5, blank is 3.
+src\organisms\segments\segment-container.js, code is 17, comment is 0, blank is 3.
+src\organisms\segments\why-smackworks.js, code is 56, comment is 0, blank is 1.
+src\pages\landingpage.js, code is 31, comment is 0, blank is 1.
+src\pages\loading.js, code is 34, comment is 0, blank is 2.
+src\pages\panel.js, code is 266, comment is 8, blank is 9.
+src\pages\settings.js, code is 7, comment is 0, blank is 2.
+src\pages\signup.js, code is 27, comment is 0, blank is 2.
+src\services\authservice.js, code is 60, comment is 0, blank is 1.
+src\services\form-selector.js, code is 41, comment is 0, blank is 6.
+src\services\quest-form-field-container.js, code is 9, comment is 8, blank is 0.
+src\serviceWorker.js, code is 89, comment is 31, blank is 15.
+src\template\coverpage-template.js, code is 71, comment is 0, blank is 4.
+yarn-error.log, code is 9970, comment is 1, blank is 2266.
+yarn.lock, code is 9287, comment is 0, blank is 1990.
+===============================================================================

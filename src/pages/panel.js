@@ -110,7 +110,7 @@ export default class Panel extends Component {
   switchQuestHandler = e => {
     console.log(e);
     this.setState({
-      openQuest: parseInt(e.key),
+      openQuest: parseInt(e.key, 10),
       stageIndex: -1,
       actionIndex: -1,
       conditionIndex: -1
@@ -180,7 +180,7 @@ export default class Panel extends Component {
             return null;
           }
           return (
-            <>
+            <React.Fragment>
               <div>
                 <CreateQuestModal
                   visible={this.state.showCreateQuest}
@@ -262,14 +262,19 @@ export default class Panel extends Component {
                   <Footer
                     style={{
                       textAlign: "center",
-                      fontSize: "18px"
+                      borderTop: "2px solid black",
+                      fontSize: "18px",
+                      position: "fixed",
+                      bottom: "0px",
+                      height: "40px",
+                      width: "100%"
                     }}
                   >
                     <div>Made with ❤ by Smack</div>
                   </Footer>
                 </Layout>
               </Layout>
-            </>
+            </React.Fragment>
           );
         }}
       </Query>

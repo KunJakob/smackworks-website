@@ -13,7 +13,7 @@ export class CreateObjectiveButton extends Component {
   render() {
     const { questID, stageIndex, createObjectiveClick, ...props } = this.props;
     return (
-      <>
+      <React.Fragment>
         <Menu.Item
           key={questID + stageIndex + "createObjective"}
           {...props}
@@ -27,7 +27,7 @@ export class CreateObjectiveButton extends Component {
           <Icon type="plus" />
           Create Objective
         </Menu.Item>
-      </>
+      </React.Fragment>
     );
   }
 }

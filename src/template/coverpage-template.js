@@ -56,7 +56,11 @@ class RawCoverPageTemplate extends Component {
               style={{
                 textAlign: "center",
                 borderTop: "2px solid black",
-                fontSize: "18px"
+                fontSize: "18px",
+                position: "fixed",
+                bottom: "0px",
+                height: "40px",
+                width: "100%"
               }}
             >
               Made with ❤ by Smack

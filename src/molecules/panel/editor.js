@@ -31,7 +31,7 @@ class RawEditor extends Component {
     const hasCondition = conditionIndex >= 0;
     const hasAction = actionIndex >= 0;
     if (!hasStage && !hasObjective && !hasCondition && !hasAction) {
-      return <>Select a quest to begin</>;
+      return <React.Fragment>Select a quest to begin</React.Fragment>;
     } else {
       if (hasCondition) {
         const data = this.props.client.cache.readQuery({
@@ -94,7 +94,7 @@ class RawEditor extends Component {
           </Mutation>
         );
       }
-      return <></>;
+      return <React.Fragment />;
     }
   }
 }

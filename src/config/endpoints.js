@@ -1,4 +1,4 @@
 export const endpoints = {
-  auth: 'http://localhost:4500/',
-  api: 'http://localhost:4400/'
-}
+  auth: "https://api.smack.works/",
+  api: "https://api.smack.works/graphql"
+};
